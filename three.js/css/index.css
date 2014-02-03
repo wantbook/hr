@@ -1,0 +1,13 @@
+html, body, #wgl-app {
+	width: 355px;
+	height: 343px;
+	margin: 0;
+}
+
+#wgl-app {
+	background-color: #666666;
+}
+
+canvas {
+	display: block;
+}
