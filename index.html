@@ -1,98 +1,168 @@
 <!DOCTYPE html>
+
 <html>
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=640" />
+<head>
+	<title>Wantbook</title>
+	<meta charset="utf-8">
+	<meta name="copyright" content="2014 - Wantbook">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 
-    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
-    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
 
-    <script type="text/javascript" src="javascripts/modernizr.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $('#main_content').headsmart()
-      })
-    </script>
-    <title>wantbook by wantbook</title>
-  </head>
+    <script type="text/javascript" src="js/lib/requestAnimFrame.js"></script>
 
-  <body>
-    <a id="forkme_banner" href="https://github.com/wantbook/hr">View on GitHub</a>
-    <div class="shell">
-
-      <header>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <h1>wantbook</h1>
-            <h2></h2>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-      </header>
-
-      <section id="downloads">
-        <span class="inner">
-          <a href="https://github.com/wantbook/hr/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/wantbook/hr/tarball/master" class="tgz"><em>download</em> .TGZ</a>
-        </span>
-      </section>
+    <script type="text/javascript" src="js/lib/three.js"></script>
+    <script type="text/javascript" src="js/lib/JSONLoader.js"></script>
+    <script type="text/javascript" src="js/lib/Loader.js"></script>
+    <script type="text/javascript" src="js/lib/HeadControls.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    
+    
+</head> 
 
 
-      <span class="banner-fix"></span>
+<body>
+<div id="loader">
+
+</div>
+<article>
+    <div class="main">
+        <div class="revard block_1 revard_back" data="block_1" data-face="webdesigner"><div class="job"></div><div class="portrait"></div></div>
+        <div class="revard block_2 revard_back" data="block_2" data-face="manager"><div class="job"></div><div class="portrait"></div></div>
+        <div class="revard block_3 revard_back" data="block_3" data-face="webprogrammer"><div class="job"></div><div class="portrait"></div></div>
+        <div class="revard block_4 revard_back" data="block_4" data-face="advokat"><div class="job"></div><div class="portrait"></div></div>
+        <div class="revard block_5 revard_back" data="block_5" data-face="3ddesigner"><div class="job"></div><div class="portrait"></div></div>
+        <div class="revard block_6 revard_back" data="block_6" data-face="copywriter"><div class="job"></div><div class="portrait"></div></div>
+        <div class="revard block_7 revard_back" data="block_7" data-face="programmer"><div class="job"></div><div class="portrait"></div></div>
+        <div class="revard block_8 revard_back" data="block_8" data-face="girl"><div class="job"></div><div class="portrait"></div></div>
+        <div class="medal"></div>
+        <div class="light"></div>
+        <div class="revard block_1 bg_none" data="block_1" data-face="webdesigner"></div>
+        <div class="revard block_2 bg_none" data="block_2" data-face="manager"></div>
+        <div class="revard block_3 bg_none" data="block_3" data-face="webprogrammer"></div>
+        <div class="revard block_4 bg_none" data="block_4" data-face="advokat"></div>
+        <div class="revard block_5 bg_none" data="block_5" data-face="3ddesigner"></div>
+        <div class="revard block_6 bg_none" data="block_6" data-face="copywriter"></div>
+        <div class="revard block_7 bg_none" data="block_7" data-face="programmer"></div>
+        <div class="revard block_8 bg_none" data="block_8" data-face="girl"></div>
+    </div>
+    <div id="back_side"></div>
+    <div class="content down">
+        <div id="close"><p>ВЫХОД</p></div>
+        <div class="block_content" id="block_1">
+            <div class="deal"></div>
+            <div class="revard_decription">
+                <div class="text">
+                    <p>Разыскивается дизайнер, идеально знающий HTML, владеющий векторной графикой SVG, с опытом творения глянцевых журналов и не пугающийся JQuery и программной анимации. Безусловным плюсом будет не только творческая направленность на высокие результаты, но и способность кропотливо работать над огромным количеством деталей произведений искусства. Может быть, Вы мечтаете создать фильм, 	  интерактивную игру на странице журнала – направляйте к нам ваше резюме и подтверждение вашего профессионализма в тестовом задании. </p>
+                    <div class="hh"><p>ПОДРОБНОЕ ОПИСАНИЕ</p><p><a href="#">Ссылка на вакансию</a></p></div>
+                </div>
+            </div>
+            <div class="revard_scene">
+                <img src="img/f1.jpg" alt="" title=""/>
+                <div id="wgl-app"></div>
+            </div>
+        </div>
+
+        <div class="block_content" id="block_2">
+            <div class="deal"></div>
+            <div class="revard_decription">
+                <div class="text">
+                    <p>Разыскивается мастер интернетовского дела, увлеченный идеями развития продуктовых отношений в виртуальной сети. Мышление в терминах веб сервисов и эргономичных форм должно подкрепляться  способностью выделять главное в реальных торговых цепочках, анализировать потребительские ниши и понимать причину успеха того или иного бизнеса. Огромные горы труда и задач должны стимулировать Вас разрабатывать лучшие интернет решения. Приветствуются такие качества как требовательность,  добросовестность, ответственность и дисциплина, как Вашего труда, так и подчиненной задаче команды разработчиков. Лучший способ продемонстрировать вашу нацеленность – выполнение тестового задания, кейса на выбор.</p>
+                    <div class="hh"><p>ПОДРОБНОЕ ОПИСАНИЕ</p><p><a href="#">Ссылка на вакансию</a></p></div>
+                </div>
+            </div>
+            <div class="revard_scene">
+                <img src="img/f2.jpg" alt="" title=""/>
+            </div>
+        </div>
+
+        <div class="block_content" id="block_3">
+            <div class="deal"></div>
+            <div class="revard_decription">
+                <div class="text">
+                    <p>Разыскивается программист верстальщик, не «ломающий» рабочие HTML макеты, а превращающий их в программные формы с интерактивностью лучших современных сетевых игр. Абсолютным требованием является знание HTML и особенностей поведения веб страниц с использованием библиотек JQuery, JQuery SVG. Для тех, кто понимает значение технологий HTML 5, наши двери открыты особенно широко. Для настоящего в душе программиста не составит труда выполнить тест на знание или умение  разобраться в динамических тонкостях HTML и JQuery.</p>
+                    <div class="hh"><p>ПОДРОБНОЕ ОПИСАНИЕ</p><p><a href="#">Ссылка на вакансию</a></p></div>
+                </div>
+            </div>
+            <div class="revard_scene">
+                <img src="img/f3.jpg" alt="" title=""/>
+            </div>
+        </div>
+
+        <div class="block_content" id="block_4">
+            <div class="deal"></div>
+            <div class="revard_decription">
+                <div class="text">
+                    <p>Разыскивается юрист, готовый завоевывать мир и достигать вершин правового искусства. Вам понадобятся умения составлять договоры с детальным учетом правовых, финансовых и операционных рисков, вырабатывать выгодную юридическую позицию и четкую линию защиты в различных инстанциях. Искусство ведения судебного боя должно подкрепляться пониманием сути предметной области – особенности работы пользователей интернета, коммерческие расчеты, логистика продаж, авторское право и все, что относится к материальному миру. Если Вам и целого мира мало, и Вы готовы нести ответственность за принятые решения – нам с Вами по пути.</p>
+                    <div class="hh"><p>ПОДРОБНОЕ ОПИСАНИЕ</p><p><a href="#">Ссылка на вакансию</a></p></div>
+                </div>
+            </div>
+            <div class="revard_scene">
+                <img src="img/f4.jpg" alt="" title=""/>
+            </div>
+        </div>
+
+        <div class="block_content" id="block_5">
+            <div class="deal"></div>
+            <div class="revard_decription">
+                <div class="text">
+                    <p>Разыскивается выразительный художник-моделлер, способный полигонами оживлять персонажей, игровые предметы и локации. Вы должны уметь работать с материалами и освещением, создавая реалистичные образы. Особенно приветствуется мастерство оснастки кукол для аниматора. Если в вашем портфолио   есть место для слова Блендер, Вы уже почти наш человек. Несложное тестовое задание поможет нам оценить ваш художественный вкус и точность исполнения.</p>
+                    <div class="hh"><p>ПОДРОБНОЕ ОПИСАНИЕ</p><p><a href="#">Ссылка на вакансию</a></p></div>
+                </div>
+            </div>
+            <div class="revard_scene">
+                <img src="img/f5.jpg" alt="" title=""/>
+            </div>
+        </div>
+
+        <div class="block_content" id="block_6">
+            <div class="deal"></div>
+            <div class="revard_decription">
+                <div class="text">
+                    <p>Разыскивается редактор нового формата журналов. Это раньше журнал можно было прочитать, свернуть в трубочку и убить комара, использовать в качестве подставки для чая и кофе. Новые технологии собирают
+                        в журнале все, что человек смог на сегодня напридумать – от книг и стенгазет до фильмов, игр и целых интернет магазинов. Умение работать с контентом – это то, что мы ищем. Нужно уметь написать статью, снять видеосюжет, сделать новостной выпуск и организовать целую  выставку. И не беда, что всему этому сразу  не учили, настоящее стремление не знает преград. Можно для начала попробовать наше тестовое задание, обзор одного из событий, которые нас окружают каждый день. </p>
+                    <div class="hh"><p>ПОДРОБНОЕ ОПИСАНИЕ</p><p><a href="#">Ссылка на вакансию</a></p></div>
+                </div>
+            </div>
+            <div class="revard_scene">
+                <img src="img/f6.jpg" alt="" title=""/>
+            </div>
+        </div>
+        <div class="block_content" id="block_7">
+            <div class="deal"></div>
+            <div class="revard_decription">
+                <div class="text">
+                    <p>Разыскивается Программист трехмерной графики, связывающий свою профессиональную жизнь с игровой индустрией. Знания фокусов визуальной иллюзии 3D миров и основ математического читтинга должны сопутствовать уверенному инженерному владению программными 3D пакетами и библиотеками – OpenGL, Blender, WebGL, Bullet. Демонстрация умений в тестовом задании позволит подтвердить вашу принадлежность к индустрии 3D. </p>
+                    <div class="hh"><p>ПОДРОБНОЕ ОПИСАНИЕ</p><p><a href="#">Ссылка на вакансию</a></p></div>
+                </div>
+            </div>
+            <div class="revard_scene">
+                <img src="img/f7.jpg" alt="" title=""/>
+            </div>
+        </div>
+        <div class="block_content" id="block_8">
+            <div class="deal"></div>
+            <div class="revard_decription">
+                <div class="text">
+                    <p>Разыскивается начинающий «Мистер Вульф», способный вести делопроизводство и жизнеобеспечение офиса, вырабатывать самостоятельные решения в режиме многозадачности. Вам представится возможность работать в одной команде и учиться у продуктовых менеджеров, а впоследствии стать специалистом в понравившемся направлении. Вы можете реализовать свои знания в юриспруденции, экономике, научиться писать живые бизнес - планы и  понимать структуру организации бизнеса, как в России, так и за рубежом. Приветствуется готовность к широкому кругу обязанностей, умение самостоятельно делать все, в том числе и приготовление чая и кофе гостям офиса и своим ответственным руководителям.</p>
+                    <div class="hh"><p>ПОДРОБНОЕ ОПИСАНИЕ</p><p><a href="#">Ссылка на вакансию</a></p></div>
+                </div>
+            </div>
+            <div class="revard_scene">
+                <img src="img/f8.jpg" alt="" title=""/>
+            </div>
+        </div>
 
 
-      <section id="main_content">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-
-      <footer>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <p>this project by <a href="https://github.com/wantbook">wantbook</a> can be found on <a href="https://github.com/wantbook/hr">GitHub</a></p>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
-        <span class="octocat"></span>
-      </footer>
-
+        <div id="nav"></div>
     </div>
 
-    
-  </body>
+
+
+</article>
+</body>
+
 </html>
