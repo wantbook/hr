@@ -70,9 +70,9 @@ article .revard{
     position: absolute;
     display: inline-block;
     cursor:pointer;
-    background:url("../img/l_uni_2.png") no-repeat;
-    height: 240px;
-    width: 180px;
+    background:url("../img/l_uni.png") no-repeat;
+    height: 230px;
+    width: 174px;
     -webkit-transition: top 1s;
     -moz-transition: top 1s;
     -ms-transition: top 1s;
@@ -106,13 +106,13 @@ article{
     margin-left:193.5px;
     margin-top:207px;
     background:url("../img/file.png") no-repeat center;
-    z-index:100;
+    z-index:110;
     font: normal 11pt/11pt 'Courier';
-    -webkit-transition: top 1s;
-    -moz-transition: top 1s;
-    -ms-transition: top 1s;
-    -o-transition: top 1s;
-    transition: top 1s;
+    -webkit-transition: top .3s;
+    -moz-transition: top .3s;
+    -ms-transition: top .3s;
+    -o-transition: top .3s;
+    transition: top .3s;
 }
 .content .block_content{
     display:none;
@@ -133,6 +133,9 @@ article{
     position:absolute;
     left: -60px;
     bottom: 0;
+}
+#close:hover{
+    background-position:0 -37px;
 }
 .block_1{
     z-index:80;
@@ -328,11 +331,11 @@ article{
     position:absolute;
     overflow:hidden;
     background:url("../img/textinfo.png");
-    top: 428px;
+    top: 368px;
     left: 31px;
     width: 469px;
-    height: 303px;
-    padding: 25px 18px;
+    height: 384px;
+    padding: 13px 17px;
 }
 .revard_decription, .revard_scene{
     position:relative;
@@ -363,69 +366,65 @@ article{
 #nav div:hover{
     background:#be2831;
 }
-#block_1 .deal{
+.deal .img_deal{
     position:absolute;
-    top:10px;
-    left:45px;
-    width:517px;
-    height:719px;
-    background:url("../img/i1.png");
+    width: 361px;
+    height: 500px;
+    margin-left: 87px;
+    background: url("../img/list_b.png");
+    background-size: cover;
 }
-#block_2 .deal{
+.deal .img_deal_text{
     position:absolute;
-    top:10px;
-    left:45px;
-    width:517px;
-    height:719px;
-    background:url("../img/i2.png");
+    width: 261px;
+    margin: 131px 137px;
+    height: 200px;
+    -webkit-transform: rotate(-4deg);
+    -moz-transform: rotate(-4deg);
+    -ms-transform: rotate(-4deg);
+    -o-transform: rotate(-4deg);
+    transform: rotate(-4deg);
+    background-size: cover;
 }
-#block_3 .deal{
-    position:absolute;
-    top:10px;
-    left:45px;
-    width:517px;
-    height:719px;
-    background:url("../img/i3.png");
+#block_1 .img_deal_text{
+    background: url("../img/i_1.png");
+    background-size: cover;
 }
-#block_4 .deal{
-    position:absolute;
-    top:10px;
-    left:45px;
-    width:517px;
-    height:719px;
-    background:url("../img/i4.png");
+#block_2 .img_deal_text{
+    background: url("../img/i_2.png");
+    background-size: cover;
 }
-#block_5 .deal{
-    position:absolute;
-    top:10px;
-    left:45px;
-    width:517px;
-    height:719px;
-    background:url("../img/i5.png");
+#block_3 .img_deal_text{
+    background: url("../img/i_3.png");
+    background-size: cover;
 }
-#block_6 .deal{
-    position:absolute;
-    top:10px;
-    left:45px;
-    width:517px;
-    height:719px;
-    background:url("../img/i6.png");
+#block_4 .img_deal_text{
+    background: url("../img/i_4.png");
+    background-size: cover;
 }
-#block_7 .deal{
-    position:absolute;
-    top:10px;
-    left:45px;
-    width:517px;
-    height:719px;
-    background:url("../img/i7.png");
+#block_5 .img_deal_text{
+    background: url("../img/i_5.png");
+    background-size: cover;
 }
-#block_8 .deal{
+#block_6 .img_deal_text{
+    background: url("../img/i_6.png");
+    background-size: cover;
+}
+#block_7 .img_deal_text{
+    background: url("../img/i_7.png");
+    background-size: cover;
+}
+#block_8 .img_deal_text{
+    background: url("../img/i_8.png");
+    background-size: cover;
+}
+.deal{
     position:absolute;
     top:10px;
     left:45px;
     width:517px;
     height:719px;
-    background:url("../img/i8.png");
+    overflow:hidden;
 }
 .down{
     top:3000px!important;
@@ -463,4 +462,7 @@ a{
 .bg_none{
     background:none!important;
     z-index:105!important;
+}
+.text p{
+    font: normal 13pt/14pt 'Courier New', sans-serif;
 }

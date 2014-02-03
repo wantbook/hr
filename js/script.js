@@ -39,17 +39,12 @@ $(function() {
       var asa; var canvas; var dcanvas; var gl; var expmt;
 
       canvas = $('#my-canvas');
-      console.log(canvas);
-
-      // check to see if we can do webgl
-      // ALERT FOR JQUERY PEEPS: canvas is a jquery obj - access the dom obj at canvas[0]
           dcanvas = canvas[0];
           expmt = false;
           if ("WebGLRenderingContext" in window) {
               console.log("browser at least knows what webgl is.");
               app.webgl = true;
           }
-          // some browsers don't have a .getContext for canvas...
           try { gl = dcanvas.getContext("webgl"); }
           catch (x) { gl = null; }
           if (gl == null) {
@@ -95,9 +90,7 @@ $(function() {
     },
     open_content: function(_this){
       $(app.revard).removeClass("down");
-      //$(app.content).animate({bottom: "-3000px"}, 300 );
       $(app.content).addClass("down");
-      //$(app.content).animate({bottom: "5%"}, 500 );
       setTimeout( function() {$(app.content).removeClass("down")  }, 500);
       $(app.content).find(".block_content").hide();
       $("#"+$(_this).attr("data")+"").show();
@@ -107,7 +100,7 @@ $(function() {
       $(back_side).fadeIn(300);
       setTimeout( function() { app.content_isopen = true }, 500);
       if(app.webgl){
-        if($(_this).attr("data-face")=="girl"||$(_this).attr("data-face")=="advokat"||$(_this).attr("data-face")=="programmer"){
+        if($(_this).attr("data-face")=="girl"||$(_this).attr("data-face")=="advokat"||$(_this).attr("data-face")=="programmer"||$(_this).attr("data-face")=="programmer3d"||$(_this).attr("data-face")=="copywriter"){
           $("#"+$(_this).attr("data")+" .revard_scene").find("img").css("display","none");
           $("#wgl-app").appendTo("#"+$(_this).attr("data")+" .revard_scene");
           !app.anim_loaded ? (setTimeout( function() {init($(_this).attr("data-face")); app.anim_loaded = true},500)) : false;
@@ -160,7 +153,6 @@ $(function() {
 
   $(app.content).find("#close").on("click",function(){
     app.content_isopen = false;
-    //$(app.content).animate({bottom: "-3000px"}, 300 );
     $(app.content).addClass("down");
     $(app.revard).removeClass("down");
     $(back_side).fadeOut(300);
@@ -170,10 +162,10 @@ $(function() {
     e.stopPropagation();
   });
 
-  window.onresize = function(event) {
-    var qwe;
-    clearTimeout(qwe);
-    qwe = setTimeout( function() {
+  window.onresize = function() {
+    var resize;
+    clearTimeout(resize);
+    resize = setTimeout( function() {
       $(app.article).css({"margin-left":(($("body").width()-1600)/2*100/$("body").width())+"%","margin-top":(($("body").height()-1200)/4*100/$("body").height())+"%"});
     }, 100);
   }

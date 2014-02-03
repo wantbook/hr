@@ -11,7 +11,7 @@ function init( name ){
     container.appendChild( renderer.domElement );
     
     var clock = new THREE.Clock();
-    var faceList = ["programmer", "girl", "advokat"];
+    var faceList = ["programmer", "girl", "advokat", "programmer3d", "copywriter"];
     var loader = new THREE.JSONLoader();
     var faces = {};
     var scene, camera, character, lookAtPos, mouseVec;

@@ -74,7 +74,7 @@ THREE.HeadControls = function ( object, camera, domElement, scene, useHelper ) {
 
         var dir = scope.dist.sub( scope.camera.position ).normalize();
 
-        scope.dist.copy( scope.camera.position.clone().add( dir.multiplyScalar( -3 ) ) );
+        scope.dist.copy( scope.camera.position.clone().add( dir.multiplyScalar( -2.5) ) );
 
 	}
 	
