@@ -33,35 +33,38 @@ $(function() {
       $(app.article).css({"margin-left":(($("body").width()-1600)/2*100/$("body").width())+"%","margin-top":(($("body").height()-1200)/4*100/$("body").height())+"%"});
 
       setTimeout( function() {
-        $("#loader").fadeOut(300);
         $("article").fadeIn(300);
       }, 100);
       var asa; var canvas; var dcanvas; var gl; var expmt;
 
       canvas = $('#my-canvas');
-          dcanvas = canvas[0];
-          expmt = false;
-          if ("WebGLRenderingContext" in window) {
-              console.log("browser at least knows what webgl is.");
-              app.webgl = true;
-          }
-          try { gl = dcanvas.getContext("webgl"); }
+      dcanvas = canvas[0];
+      expmt = false;
+      if ("WebGLRenderingContext" in window) {
+          app.webgl = true;
+      }
+      try { gl = dcanvas.getContext("webgl"); }
+      catch (x) { gl = null; }
+      if (gl == null) {
+          try { gl = dcanvas.getContext("experimental-webgl"); }
           catch (x) { gl = null; }
           if (gl == null) {
-              try { gl = dcanvas.getContext("experimental-webgl"); }
-              catch (x) { gl = null; }
-              if (gl == null) { console.log("but can't speak it"); }
-              else { expmt = true; console.log('and speaks it experimentally.'); }
-          } else {
-              console.log('and speaks it natively.');
+              //console.log("but can't speak it");
           }
+          else {
+             expmt = true;
+             //console.log('and speaks it experimentally.');
+          }
+      } else {
+           //console.log('and speaks it natively.');
+      }
 
-          if (gl || expmt) {
-              console.log("loading webgl content.");
-          } else {
-              console.log("image-only fallback. no webgl.");
-              canvas.remove();
-          }
+      if (gl || expmt) {
+          //console.log("loading webgl content.");
+      } else {
+          //console.log("image-only fallback. no webgl.");
+          canvas.remove();
+      }
     },
     slider: function(){
       setInterval( function() {
@@ -100,16 +103,18 @@ $(function() {
       $(back_side).fadeIn(300);
       setTimeout( function() { app.content_isopen = true }, 500);
       if(app.webgl){
-        if($(_this).attr("data-face")=="girl"||$(_this).attr("data-face")=="advokat"||$(_this).attr("data-face")=="programmer"||$(_this).attr("data-face")=="programmer3d"||$(_this).attr("data-face")=="copywriter"){
-          $("#"+$(_this).attr("data")+" .revard_scene").find("img").css("display","none");
+        if($(_this).attr("data-face")=="girl"||$(_this).attr("data-face")=="advokat"||$(_this).attr("data-face")=="programmer"||$(_this).attr("data-face")=="programmer3d"||$(_this).attr("data-face")=="copywriter"||$(_this).attr("data-face")=="girl2"||$(_this).attr("data-face")=="gamedesigner"){
           $("#wgl-app").appendTo("#"+$(_this).attr("data")+" .revard_scene");
-          !app.anim_loaded ? (setTimeout( function() {init($(_this).attr("data-face")); app.anim_loaded = true},500)) : false;
-          app.anim_loaded ? window.setFace($(_this).attr("data-face")) : false;
+          !app.anim_loaded ? (setTimeout( function() {init($(_this).attr("data-face")); app.anim_loaded = true},1000)) : false;
+          if(app.anim_loaded){
+            window.setFace($(_this).attr("data-face"));
+            $("#"+$(_this).attr("data")+" .revard_scene").find("img").css("display","none");
+          }
         }else{
-          $("#"+$(_this).attr("data")+" .revard_scene").find("img").css("display","inline-block");
+          $("#"+$(_this).attr("data")+" .revard_scene").find("img").css("display","block");
         }
       }else{
-        $("#"+$(_this).attr("data")+" .revard_scene").find("img").css("display","inline-block");
+        $("#"+$(_this).attr("data")+" .revard_scene").find("img").css("display","block");
       }
     }
   },
@@ -169,5 +174,153 @@ $(function() {
       $(app.article).css({"margin-left":(($("body").width()-1600)/2*100/$("body").width())+"%","margin-top":(($("body").height()-1200)/4*100/$("body").height())+"%"});
     }, 100);
   }
+
+
+
+window.facesLoaded = false;
+
+function init( name ){
+
+    var renderer = new THREE.WebGLRenderer( { antialias: false } );
+    renderer.setSize( 600, 600 );
+
+    var container = document.getElementById( "wgl-app" );
+    container.appendChild( renderer.domElement );
+
+    var clock = new THREE.Clock();
+    var faceList = ["programmer", "girl", "advokat", "programmer3d", "copywriter", "girl2", "gamedesigner"];
+    var loader = new THREE.JSONLoader();
+    var faces = {};
+    var scene, camera, character, lookAtPos, mouseVec, loadPercent;
+
+    var loaded = function( ) {
+
+        scene = new THREE.Scene( );
+
+        camera = new THREE.PerspectiveCamera( 45, 600 / 600, 0.1, 1000 );
+        camera.position.set( 0, 1.5, 3.5 );
+        camera.lookAt(new THREE.Vector3(0,1,0));
+
+        lookAtPos = new THREE.Vector3(0, 0, camera.position.z - 0.5);
+        mouseVec = new THREE.Vector3(0, 0, camera.position.z - 0.5);
+
+
+        var light = new THREE.PointLight( 0xf4e1b4, 1, 100 );
+        light.position.set( 5, 5, 7 );
+
+        var light2 = new THREE.PointLight( 0xf4e1b4, 1, 100 );
+        light2.position.set( -5, 5, 7 );
+
+        var xAxis = new THREE.Mesh(
+            new THREE.CubeGeometry( 50, 0.01, 0.01 ),
+            new THREE.MeshBasicMaterial( { color: 0xff0000} )
+        );
+        var yAxis = new THREE.Mesh(
+            new THREE.CubeGeometry( 0.01, 50, 0.01 ),
+            new THREE.MeshBasicMaterial( { color: 0x00ff00} )
+        );
+        var zAxis = new THREE.Mesh(
+            new THREE.CubeGeometry( 0.01, 0.01, 50 ),
+            new THREE.MeshBasicMaterial( { color: 0x0000ff} )
+        );
+
+        loadFromArr(faceList);
+
+        scene.add( camera );
+        scene.add( light );
+        scene.add( light2 );
+
+        animate();
+
+    }
+
+    var loadFromArr = function(arr){
+
+        var i = 0;
+        var len = arr.length;
+
+        var loadNext = function(){
+
+            loadPercent = i * 100 / len;
+            loadPercent = Math.round(loadPercent);
+
+            $("#loader").find(".load_graf").css("width",loadPercent+"%");
+            $("#loader").find(".load_text").text(loadPercent + " %");
+
+            i++
+            if ( i > len ) {
+                window.facesLoaded = true;
+                setTimeout( function() {
+                  $("#wgl-app").find("canvas").css("opacity","1");
+                  $("#loader").fadeOut(200);
+                  $("#wgl-app").parent().find("img").fadeOut(300);
+                }, 500);
+                return;
+            }
+
+
+            //console.log(i)
+            loader.load( "assets/characters/" + arr[i-1] + "/" + arr[i-1] + ".js", function( geometry, materials ) {
+
+                var mesh = new THREE.SkinnedMesh(
+                    geometry,
+                    new THREE.MeshFaceMaterial(materials)
+                );
+                mesh.visible = false;
+
+                if(name == arr[i-1]) {
+                    character = new THREE.HeadControls( mesh, camera, renderer.domElement, scene, true );
+                    mesh.visible = true;
+                }
+
+                scene.add( mesh );
+                //console.log(arr[i-1])
+                faces[arr[i-1]] = mesh;
+
+                loadNext();
+
+            } )
+
+        }
+
+        loadNext();
+
+
+
+    }
+
+
+    var render = function( ){
+
+
+        var delta = clock.getDelta( );
+
+        if(character && character.update) character.update( delta );
+
+        renderer.render( scene, camera );
+
+    }
+
+    var animate = function( ) {
+        render( );
+        requestAnimFrame( animate );
+    }
+
+    loaded( );
+
+    window.setFace = function(name){
+
+        for ( var face in faces ) {
+            faces[face].visible = false;
+        }
+        faces[name].visible = true;
+        character.setMesh( faces[name] );
+
+
+    }
+
+}
+
+
 
 });

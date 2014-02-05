@@ -23,7 +23,7 @@ THREE.JSONLoader.prototype.load = function ( url, callback, texturePath ) {
 
 
 	texturePath = texturePath.substring(0, texturePath.length - 1);
-	console.log(texturePath);
+	//console.log(texturePath);
 
 	this.onLoadStart();
 	this.loadAjaxJSON( this, url, callback, texturePath );

@@ -26,14 +26,14 @@ THREE.HeadControls = function ( object, camera, domElement, scene, useHelper ) {
         var hlgeo = new THREE.Geometry();
         for ( var i = 0, l = 100; i <= l; i++ ) {
             var segment = ( i * 3.6 ) * Math.PI / 180;
-            r1geo.vertices.push( new THREE.Vertex( new THREE.Vector3( Math.cos( segment ) * 0.25, Math.sin( segment ) * 0.25, 0 ) ) );
-            r2geo.vertices.push( new THREE.Vertex( new THREE.Vector3( Math.cos( segment ) * 0.15, Math.sin( segment ) * 0.15 ), 0 ) );
-            r3geo.vertices.push( new THREE.Vertex( new THREE.Vector3( Math.cos( segment ) * 0.06, Math.sin( segment ) * 0.06 ), 0 ) );
+            r1geo.vertices.push( new THREE.Vector3( Math.cos( segment ) * 0.07, Math.sin( segment ) * 0.07, 0 ) );
+            r2geo.vertices.push( new THREE.Vector3( Math.cos( segment ) * 0.04, Math.sin( segment ) * 0.04, 0 ) );
+            r3geo.vertices.push( new THREE.Vector3( Math.cos( segment ) * 0.015, Math.sin( segment ) * 0.015, 0 ) );
         }
-        vlgeo.vertices.push( new THREE.Vertex( new THREE.Vector3(0,0.3,0) ) );
-        vlgeo.vertices.push( new THREE.Vertex( new THREE.Vector3(0,-0.3,0) ) );
-        hlgeo.vertices.push( new THREE.Vertex( new THREE.Vector3(0.3,0,0) ) );
-        hlgeo.vertices.push( new THREE.Vertex( new THREE.Vector3(-0.3,0,0) ) );
+        vlgeo.vertices.push( new THREE.Vector3(0,0.1,0) );
+        vlgeo.vertices.push( new THREE.Vector3(0,-0.1,0) );
+        hlgeo.vertices.push( new THREE.Vector3(0.1,0,0) );
+        hlgeo.vertices.push( new THREE.Vector3(-0.1,0,0) );
 
         helper.add( new THREE.Line(r1geo, mat) );
         helper.add( new THREE.Line(r2geo, mat) );
@@ -66,7 +66,22 @@ THREE.HeadControls = function ( object, camera, domElement, scene, useHelper ) {
 
         scope.dist.set(
                   ( event.offsetX / domElement.width  ) * 2 - 1,
-                - ( event.offsetY / domElement.height ) * 2 + 1,
+                - (( event.offsetY / domElement.height ) * 2 + 1)/2+1,
+                  3
+        );
+
+        scope.projector.unprojectVector( scope.dist, scope.camera )
+
+        var dir = scope.dist.sub( scope.camera.position ).normalize();
+
+        scope.dist.copy( scope.camera.position.clone().add( dir.multiplyScalar( -2) ) );
+
+	}
+	function mouseout( event ) {
+
+        scope.dist.set(
+                  ( 300 / 600  ) * 2 - 1,
+                - (( 200 / 600 ) * 2 + 1)/4+0.35,
                   3
         );
 
@@ -94,6 +109,7 @@ THREE.HeadControls = function ( object, camera, domElement, scene, useHelper ) {
 
     domElement.addEventListener( 'mousemove', onMouseMove, false );
 
+	this.domElement.addEventListener( 'mouseout', mouseout, false );
 	this.domElement.addEventListener( 'touchstart', touchstart, false );
 	this.domElement.addEventListener( 'touchend', touchend, false );
 	this.domElement.addEventListener( 'touchmove', touchmove, false );

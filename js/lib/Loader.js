@@ -61,7 +61,7 @@ THREE.Loader.prototype = {
 
 	extractUrlBase: function ( url ) {
 
-	    console.log(url);
+	    //console.log(url);
 
 		var parts = url.split( '/' );
 		parts.pop();
