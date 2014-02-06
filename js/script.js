@@ -99,7 +99,7 @@ $(function() {
       $("#"+$(_this).attr("data")+"").show();
       $("."+$(_this).attr("data")).addClass("down");
       $("#nav").find("div").removeClass("active");
-      $("#nav").find("div").eq($("#"+$(_this).attr("data")+"").index()-1).addClass("active");
+      $("#nav").find("div").eq($("#"+$(_this).attr("data")+"").index()).addClass("active");
       $(back_side).fadeIn(300);
       setTimeout( function() { app.content_isopen = true }, 500);
       if(app.webgl){
@@ -182,7 +182,7 @@ window.facesLoaded = false;
 function init( name ){
 
     var renderer = new THREE.WebGLRenderer( { antialias: false } );
-    renderer.setSize( 600, 600 );
+    renderer.setSize( 545, 600 );
 
     var container = document.getElementById( "wgl-app" );
     container.appendChild( renderer.domElement );
@@ -197,8 +197,8 @@ function init( name ){
 
         scene = new THREE.Scene( );
 
-        camera = new THREE.PerspectiveCamera( 45, 600 / 600, 0.1, 1000 );
-        camera.position.set( 0, 1.5, 3.5 );
+        camera = new THREE.PerspectiveCamera( 45, 545 / 600, 0.1, 1000 );
+        camera.position.set( 0, 1.5, 3 );
         camera.lookAt(new THREE.Vector3(0,1,0));
 
         lookAtPos = new THREE.Vector3(0, 0, camera.position.z - 0.5);

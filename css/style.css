@@ -27,6 +27,7 @@ body {
 	height: 100%;
 	width: 100%;
 	background:#000;
+	overflow:hidden;
 }
 html{
     height:100%;
@@ -334,11 +335,15 @@ article{
     position:relative;
     display:inline-block;
     vertical-align:middle;
-    width: 49%;
+    width: 47%;
+    margin: 0 4px;
+    overflow: hidden;
 }
 .revard_scene{
     text-align:center;
     min-height:595px;
+    width: 545px;
+    margin: 0 0 0 44px;
 }
 .revard_scene img{
     position: absolute;
@@ -496,4 +501,45 @@ a{
     -ms-transition: opacity ease-out .3s;
     -o-transition: opacity ease-out .3s;
     transition: opacity ease-out .3s;
+}
+#license{
+    position:fixed;
+    bottom:15px;
+    right:0px;
+    z-index:109;
+    color:#fff;
+}
+.l_paper{
+    position:absolute;
+    background: url("../img/paper.png")  -124px -87px;
+    width: 93px;
+    height: 775px;
+    top: 2px;
+    right: 539px;
+}
+.r_paper{
+    position:absolute;
+    background: url("../img/paper.png") -358px -88px;
+    top: 0px;
+    right: 34px;
+    width: 50px;
+    height: 775px;
+}
+#ert{
+    position:absolute;
+    top: 10px;
+    left: 630px;
+    width: 546px;
+    height: 760px;
+    border:1px dashed #fff;
+    background: url("../img/111.png");
+}
+#ert2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width:273px;
+    height:380px;
+    border-top:1px dashed #fff;
+    border-left:1px dashed #fff;
 }

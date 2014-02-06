@@ -107,6 +107,9 @@ THREE.HeadControls = function ( object, camera, domElement, scene, useHelper ) {
 
 	this.domElement.addEventListener( 'contextmenu', function ( event ) { event.preventDefault(); }, false );
 
+    document.getElementById("ert").addEventListener( 'mousemove', onMouseMove, false );
+	document.getElementById("ert").addEventListener( 'mouseout', mouseout, false );
+
     domElement.addEventListener( 'mousemove', onMouseMove, false );
 
 	this.domElement.addEventListener( 'mouseout', mouseout, false );
