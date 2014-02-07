@@ -31,7 +31,6 @@ body {
 }
 html{
     height:100%;
-    overflow:hidden;
 }
 ol, ul {
 	list-style: none;
@@ -262,10 +261,10 @@ article{
 }
 .job{
     position:absolute;
-    top: 64px;
-    left: 29px;
-    width: 121px;
-    height: 97px;
+    top: 65px;
+    left: 31px;
+    width: 117px;
+    height: 95px;
 }
 .portrait_show{
     opacity:1;
@@ -296,27 +295,35 @@ article{
 }
 .block_1 .job{
     background:url("../img/i_1.png");
+    background-size: cover;
 }
 .block_2 .job{
     background:url("../img/i_2.png");
+    background-size: cover;
 }
 .block_3 .job{
     background:url("../img/i_3.png");
+    background-size: cover;
 }
 .block_4 .job{
     background:url("../img/i_4.png");
+    background-size: cover;
 }
 .block_5 .job{
     background:url("../img/i_5.png");
+    background-size: cover;
 }
 .block_6 .job{
     background:url("../img/i_6.png");
+    background-size: cover;
 }
 .block_7 .job{
     background:url("../img/i_7.png");
+    background-size: cover;
 }
 .block_8 .job{
     background:url("../img/i_8.png");
+    background-size: cover;
 }
 .revard_decription{
     height:100%;
@@ -380,9 +387,9 @@ article{
 }
 .deal .img_deal_text{
     position:absolute;
-    width: 261px;
-    margin: 131px 137px;
-    height: 200px;
+    width: 253px;
+    margin: 134px 140px;
+    height: 198px;
     -webkit-transform: rotate(-4deg);
     -moz-transform: rotate(-4deg);
     -ms-transform: rotate(-4deg);
@@ -521,7 +528,7 @@ a{
     position:absolute;
     background: url("../img/paper.png") -358px -88px;
     top: 0px;
-    right: 34px;
+    right: 31px;
     width: 50px;
     height: 775px;
 }
@@ -531,7 +538,6 @@ a{
     left: 630px;
     width: 546px;
     height: 760px;
-    border:1px dashed #fff;
     background: url("../img/111.png");
 }
 #ert2{

@@ -96,6 +96,9 @@ THREE.HeadControls = function ( object, camera, domElement, scene, useHelper ) {
 	function touchstart( event ) {
 
 	}
+	function mousewheel( event ) {
+        event.preventDefault();
+	}
 
 	function touchmove( event ) {
 
@@ -109,7 +112,7 @@ THREE.HeadControls = function ( object, camera, domElement, scene, useHelper ) {
 
     document.getElementById("ert").addEventListener( 'mousemove', onMouseMove, false );
 	document.getElementById("ert").addEventListener( 'mouseout', mouseout, false );
-
+    document.addEventListener( 'mousewheel', mousewheel, false );
     domElement.addEventListener( 'mousemove', onMouseMove, false );
 
 	this.domElement.addEventListener( 'mouseout', mouseout, false );
