@@ -98,7 +98,7 @@ article{
     position: absolute;
     margin-left:193.5px;
     margin-top:207px;
-    background:url("../img/file.png") no-repeat center;
+    /*background:url("../img/file.png") no-repeat center;*/
     z-index:110;
     font: normal 11pt/11pt 'Courier';
     -webkit-transition: top .3s;
@@ -110,6 +110,7 @@ article{
 .content .block_content{
     display:none;
     height:100%;
+    background: url("../img/file.png") no-repeat center;
 }
 #close{
     cursor:pointer;
@@ -249,6 +250,7 @@ article{
 .portrait{
     position:absolute;
     opacity:0;
+    filter: alpha(opacity=0);
     top: 64px;
     left: 29px;
     width: 121px;
@@ -265,9 +267,11 @@ article{
     left: 31px;
     width: 117px;
     height: 95px;
+    background-size: cover;
 }
 .portrait_show{
     opacity:1;
+    filter: alpha(opacity=100);
 }
 .block_1 .portrait{
     background:url("../img/f_1.png");
@@ -295,34 +299,50 @@ article{
 }
 .block_1 .job{
     background:url("../img/i_1.png");
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/i_1.png', sizingMethod='scale');
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/i_1.png', sizingMethod='scale')";
     background-size: cover;
 }
 .block_2 .job{
     background:url("../img/i_2.png");
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/i_2.png', sizingMethod='scale');
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/i_2.png', sizingMethod='scale')";
     background-size: cover;
 }
 .block_3 .job{
     background:url("../img/i_3.png");
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/i_3.png', sizingMethod='scale');
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/i_3.png', sizingMethod='scale')";
     background-size: cover;
 }
 .block_4 .job{
     background:url("../img/i_4.png");
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/i_4.png', sizingMethod='scale');
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/i_4.png', sizingMethod='scale')";
     background-size: cover;
 }
 .block_5 .job{
     background:url("../img/i_5.png");
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/i_5.png', sizingMethod='scale');
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/i_5.png', sizingMethod='scale')";
     background-size: cover;
 }
 .block_6 .job{
     background:url("../img/i_6.png");
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/i_6.png', sizingMethod='scale');
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/i_6.png', sizingMethod='scale')";
     background-size: cover;
 }
 .block_7 .job{
     background:url("../img/i_7.png");
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/i_7.png', sizingMethod='scale');
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/i_7.png', sizingMethod='scale')";
     background-size: cover;
 }
 .block_8 .job{
     background:url("../img/i_8.png");
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/i_8.png', sizingMethod='scale');
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/i_8.png', sizingMethod='scale')";
     background-size: cover;
 }
 .revard_decription{
@@ -383,6 +403,8 @@ article{
     height: 500px;
     margin-left: 87px;
     background: url("../img/list_b.png");
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/list_b.png', sizingMethod='scale');
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/list_b.png', sizingMethod='scale')";
     background-size: cover;
 }
 .deal .img_deal_text{
@@ -399,34 +421,50 @@ article{
 }
 #block_1 .img_deal_text{
     background: url("../img/i_1.png");
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/i_1.png', sizingMethod='scale');
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/i_1.png', sizingMethod='scale')";
     background-size: cover;
 }
 #block_2 .img_deal_text{
     background: url("../img/i_2.png");
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/i_2.png', sizingMethod='scale');
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/i_2.png', sizingMethod='scale')";
     background-size: cover;
 }
 #block_3 .img_deal_text{
     background: url("../img/i_3.png");
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/i_3.png', sizingMethod='scale');
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/i_3.png', sizingMethod='scale')";
     background-size: cover;
 }
 #block_4 .img_deal_text{
     background: url("../img/i_4.png");
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/i_4.png', sizingMethod='scale');
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/i_4.png', sizingMethod='scale')";
     background-size: cover;
 }
 #block_5 .img_deal_text{
     background: url("../img/i_5.png");
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/i_5.png', sizingMethod='scale');
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/i_5.png', sizingMethod='scale')";
     background-size: cover;
 }
 #block_6 .img_deal_text{
     background: url("../img/i_6.png");
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/i_6.png', sizingMethod='scale');
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/i_6.png', sizingMethod='scale')";
     background-size: cover;
 }
 #block_7 .img_deal_text{
     background: url("../img/i_7.png");
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/i_7.png', sizingMethod='scale');
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/i_7.png', sizingMethod='scale')";
     background-size: cover;
 }
 #block_8 .img_deal_text{
     background: url("../img/i_8.png");
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/i_8.png', sizingMethod='scale');
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/i_8.png', sizingMethod='scale')";
     background-size: cover;
 }
 .deal{
@@ -465,6 +503,7 @@ a{
     right: -549px;
     top: -31px;
     opacity: .4;
+    filter: alpha(opacity=40);
     width:1319px;
     height:968px;
     background: url("../img/light.png");
@@ -534,11 +573,12 @@ a{
 }
 #ert{
     position:absolute;
-    top: 10px;
+    top: 90px;
     left: 630px;
     width: 546px;
-    height: 760px;
+    height: 602px;
     background: url("../img/111.png");
+    cursor: none;
 }
 #ert2{
     position: absolute;

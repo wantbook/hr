@@ -66,8 +66,8 @@ THREE.HeadControls = function ( object, camera, domElement, scene, useHelper ) {
 
         scope.dist.set(
                   ( event.offsetX / domElement.width  ) * 2 - 1,
-                - (( event.offsetY / domElement.height ) * 2 + 1)/2+1,
-                  3
+                - (( event.offsetY / domElement.height ) * 2 + 1) / 2 + 1,
+                  2
         );
 
         scope.projector.unprojectVector( scope.dist, scope.camera )
@@ -79,17 +79,13 @@ THREE.HeadControls = function ( object, camera, domElement, scene, useHelper ) {
 	}
 	function mouseout( event ) {
 
-        scope.dist.set(
-                  ( 300 / 600  ) * 2 - 1,
-                - (( 200 / 600 ) * 2 + 1)/4+0.35,
-                  3
-        );
+        scope.dist.set(0,0,2);
 
         scope.projector.unprojectVector( scope.dist, scope.camera )
 
         var dir = scope.dist.sub( scope.camera.position ).normalize();
 
-        scope.dist.copy( scope.camera.position.clone().add( dir.multiplyScalar( -2.5) ) );
+        scope.dist.copy( scope.camera.position.clone().add( dir.multiplyScalar( -2) ) );
 
 	}
 	
@@ -110,12 +106,9 @@ THREE.HeadControls = function ( object, camera, domElement, scene, useHelper ) {
 
 	this.domElement.addEventListener( 'contextmenu', function ( event ) { event.preventDefault(); }, false );
 
-    document.getElementById("ert").addEventListener( 'mousemove', onMouseMove, false );
-	document.getElementById("ert").addEventListener( 'mouseout', mouseout, false );
-    document.addEventListener( 'mousewheel', mousewheel, false );
-    domElement.addEventListener( 'mousemove', onMouseMove, false );
+    $("#ert").get(0).addEventListener( 'mousemove', onMouseMove, false );
+    $("#ert").get(0).addEventListener( 'mouseout', mouseout, false );
 
-	this.domElement.addEventListener( 'mouseout', mouseout, false );
 	this.domElement.addEventListener( 'touchstart', touchstart, false );
 	this.domElement.addEventListener( 'touchend', touchend, false );
 	this.domElement.addEventListener( 'touchmove', touchmove, false );

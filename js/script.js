@@ -42,6 +42,17 @@ $(function() {
       expmt = false;
       if ("WebGLRenderingContext" in window) {
           app.webgl = true;
+          $.getScript('js/lib/requestAnimFrame.js', function() {
+            $.getScript('js/lib/three.js', function() {
+              $.getScript('js/lib/JSONLoader.js', function() {
+                $.getScript('js/lib/HeadControls.js', function() {
+                  $.getScript('js/lib/Loader.js', function() {
+
+                  });
+                });
+              });
+            });
+          });
       }
       try { gl = dcanvas.getContext("webgl"); }
       catch (x) { gl = null; }
@@ -103,7 +114,7 @@ $(function() {
       $(back_side).fadeIn(300);
       setTimeout( function() { app.content_isopen = true }, 500);
       if(app.webgl){
-        if($(_this).attr("data-face")=="girl"||$(_this).attr("data-face")=="advokat"||$(_this).attr("data-face")=="programmer"||$(_this).attr("data-face")=="programmer3d"||$(_this).attr("data-face")=="copywriter"||$(_this).attr("data-face")=="girl2"||$(_this).attr("data-face")=="gamedesigner"){
+        if($(_this).attr("data-face")=="girl"||$(_this).attr("data-face")=="advokat"||$(_this).attr("data-face")=="programmer"||$(_this).attr("data-face")=="programmer3d"||$(_this).attr("data-face")=="copywriter"||$(_this).attr("data-face")=="girl2"||$(_this).attr("data-face")=="gamedesigner"||$(_this).attr("data-face")=="webdesigner"){
           $("#wgl-app").appendTo("#"+$(_this).attr("data")+" .revard_scene");
           !app.anim_loaded ? (setTimeout( function() {init($(_this).attr("data-face")); app.anim_loaded = true},1000)) : false;
           if(app.anim_loaded){
@@ -188,7 +199,7 @@ function init( name ){
     container.appendChild( renderer.domElement );
 
     var clock = new THREE.Clock();
-    var faceList = ["programmer", "girl", "advokat", "programmer3d", "copywriter", "girl2", "gamedesigner"];
+    var faceList = ["programmer", "girl", "advokat", "programmer3d", "copywriter", "girl2", "gamedesigner", "webdesigner"];
     var loader = new THREE.JSONLoader();
     var faces = {};
     var scene, camera, character, lookAtPos, mouseVec, loadPercent;
@@ -279,8 +290,7 @@ function init( name ){
 
                 loadNext();
 
-            } )
-
+            })
         }
 
         loadNext();
@@ -315,12 +325,6 @@ function init( name ){
         }
         faces[name].visible = true;
         character.setMesh( faces[name] );
-
-
     }
-
 }
-
-
-
 });
