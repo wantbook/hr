@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Wantbook</title>
+    <meta charset="utf-8">
+    <meta name="copyright" content="Wantbook 2014 Лицензия Creative Commons «Attribution-NonCommercial-NoDerivs» («Атрибуция — Некоммерческое использование — Без производных произведений») 3.0 Непортированная.">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/flexslider.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.css">
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
+    <!--[if lt IE 9]>
+    <script>
+        document.createElement('article');
+    </script>
+    <![endif]-->
+
+    <script type='text/javascript' src='js/script.js'></script>
+
+    <script type='text/javascript'>
+        $(function(){
+            $('.aboutProjectHeadSlider').flexslider({
+                direction:'horizontal',
+                animation: 'slide',
+                pausePlay: false,
+                directionNav: false,
+                slideshowSpeed: 7000, 
+                prevText: "",
+                nextText: "",
+                start: function(slider){$('body').removeClass('loading')}
+            })
+            $('.aboutProjectRightPageSlider').flexslider({
+                direction:'horizontal',
+                animation: 'slide',
+                pausePlay: false,
+                directionNav: false,
+                slideshowSpeed: 7000, 
+                prevText: "",
+                nextText: "",
+                start: function(slider){$('body').removeClass('loading')}
+            })
+        })
+    </script>
+</head> 
+
+
+<body>
+
+<article class="wrapper">
+    <nav class="navigation clearfix">
+        <ul>
+
+            <li><a href="index.html">Новости</a></li>
+            <li><a href="#about">Проекты</a></li>
+            <li><a href="vacancies.html">Вакансии</a></li>
+            <li><a class="active" href="contacts.html">Контакты</a></li>
+        </ul>
+    </nav>
+
+    <div class="main">
+
+        <div style="position:relative;z-index:101;" ><h1 class="page-title contacts-title">Контакты</h1>
+
+        <address>
+            <span>10944, г. Москва</span>
+            <span>2-Й Куртицкий пер. д. 18, стр. 3</span>
+        </address>
+
+        <span class="phone">+7 (495) 676-36-60</span>
+        <span class="e-mail">info@triumf.mos.ru</span>
+
+        <a href="http://maps.yandex.ru/?text=%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D1%8F%2C%20%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%202-%D0%B9%20%D0%9A%D1%80%D1%83%D1%82%D0%B8%D1%86%D0%BA%D0%B8%D0%B9%20%D0%BF%D0%B5%D1%80%D0%B5%D1%83%D0%BB%D0%BE%D0%BA%2C%2018%D1%813&sll=37.66318%2C55.729919&ol=geo&oll=37.66318%2C55.729919&ll=37.663472%2C55.730164&spn=0.016254%2C0.005001&z=17&l=map"><img src="img/map_cont.jpg" alt="Карта" class="map"></a></div>
+
+        <div class="light"></div>
+    </div>
+
+    <div id="back_side"></div>
+    <div class="about_company_projects">
+        <script type="text/javascript">
+            $('.about_company_projects').load('inc/about_company_projects.html');
+        </script>
+    </div>
+    <div class="bg-layout"></div>
+
+    <div class="content down">
+
+    <div id="ert">
+        <!--<div id="ert2"></div>-->
+    </div>
+
+
+
+<!-- 
+    <div id="close"><p>ВЫХОД</p></div>
+    <div id="nav"></div> -->
+
+
+
+</article>
+<p id="license">Wantbook &copy; 2014 <a rel="license" href="http://wantbook.com/LICENSE"><img alt="Лицензия Creative Commons" style="vertical-align: middle; display:none;" src="http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" /></a></p>
+</body>

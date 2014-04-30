@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Wantbook</title>
+    <meta charset="utf-8">
+    <meta name="copyright" content="Wantbook 2014 Лицензия Creative Commons «Attribution-NonCommercial-NoDerivs» («Атрибуция — Некоммерческое использование — Без производных произведений») 3.0 Непортированная.">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/flexslider.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.css">
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
+    <!--[if lt IE 9]>
+    <script>
+        document.createElement('article');
+    </script>
+    <![endif]-->
+
+    <script type='text/javascript' src='js/script.js'></script>
+
+
+</head> 
+
+
+<body>
+
+<article class="wrapper">
+    <nav class="navigation clearfix">
+        <ul>
+
+            <li><a class="active" href="index.html">Новости</a></li>
+            <li><a href="#about">Проекты</a></li>
+            <li><a href="vacancies.html">Вакансии</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+    </nav>
+    <div id="back_side"></div>
+    <div class="about_news">
+        <div class="about">
+            <div class="magazine-page"></div>
+            <div class="magazine-page"></div>
+            <div class="magazine-page">
+                <div class="content-box">
+                    <div class="tophead">Новости</div>
+                    <div class="bor">
+                        <div class="box">
+                            <div class="title"><h2>Релиз новой версии Blend4Web</h2></div>
+                            <div class="date"><span>23 апреля 2014 г.</span></div>
+                            <div class="text">
+                                <p>Увидел свет второй публичный выпуск открытого 3D web фреймворка Blend4Web. Фреймворк предназначен для создания трехмерного интерактивного контента, работающего в браузерах без использования плагинов. Blend4Web тесно интегрирован с открытым пакетом Blender, использующимся в качестве основного инструмента редактирования 3D сцен. Воспроизведение контента осуществляется средствами WebGL, Web Audio и других браузерных технологий.</p>
+
+                                <p>Во втором выпуске переработана демо-сцена «Показ мод», задействованы такие функции Blend4Web, как вертексная и скелетная анимация, динамическое отражение и тени, системы частиц, множественные источники света различных типов.</p>
+
+                                <p>Добавлена начальная поддержка системы нелинейной анимации (NLA) пакета Blender. Система NLA позволяет реализовывать простые сценарии без программирования. Поддерживается включение анимации, воспроизведение звука и эффектов частиц.</p>
+
+                                <p>Реализована поддержка специальной ноды TIME в нодовых материалах. Нода позволяет реализовывать анимацию произвольных параметров материалов. С целью повышения удобства использования специальных нод ослаблено ограничение на их имена (например, ноды TIME и TIME.001 эквивалентны).</p>
+
+                                <p>Реализован API для модификации геометрии в реальном времени (динамическая запись буферов). Функция может быть использована для реализации редакторов, стриминга геометрии с сервера и т. п.</p>
+                                <img src="img/news/news_2.jpg" alt="Image" class="news-image">
+                                <p>Добавлена поддержка метода сглаживания SMAA (Subpixel Morphological Anti-Aliasing), предложенный Crytek, метод используется по умолчанию на максимальных настройках.</p>
+
+                                <p>Существенно увеличена производительность физической подсистемы движка (на демо-сцене «Ферма» - в 2 раза).</p>
+                                
+                                <p>Проведена оптимизация и улучшение алгоритма поведения ботов.</p>
+
+                                <p>Для камеры «По умолчанию» теперь используется режима поворота вокруг точки (Target) вместо статического.</p>
+
+                                <p>Используется более функциональный профиль при экспорте в HTML файл (ранее использовался режим с низким качеством).</p>
+
+                                <p>В целях оптимизации движок ставится на паузу в неактивной вкладке.</p>
+
+                                <p>Бинарные сборки аддона к Blender'у теперь включают поддержку 32-битной x86 архитектуры Linux (помимо 64-битной).</p>
+                                
+                                <p>Улучшена производительность и стабильность аддона для 64-битной Windows (теперь сборка осуществляется с помощью Windows SDK вместо MinGW, для 32-битной Windows сборки по-прежнему используется кросс-компиляция).</p>
+
+                                <p>Проведена оптимизация графических эффектов (каустика и параллакс).</p>
+
+                                <p>Реализован обход проблемной реализации графической системы на мобильных устройствах c графическими процессорами Qualcomm Snapdragon (таких как Sony Xperia Z2).</p>
+
+                                <p>Реализован обход проблемной реализации текстур глубины, которая приводила к нарушению рендеринга в Firefox 28 в операционных системах Linux и OS X (<a href="http://bugzilla.mozilla.org/show_bug.cgi?id=948002">bugzilla.mozilla.org</a>).</p>
+
+                                <p>Реализован обход ошибки транслятора шейдеров ANGLE, которая приводила к нарушению рендеринга в Chrome 34/35 в Windows (<a href="http://code.google.com/p/chromium/issues/detail?id=361618">code.google.com</a>).</p>
+
+                                <p>Реализована предварительная поддержка Internet Explorer 11.</p>
+
+                                <p>Доработан загрузчик сцен с целью учета частично загруженных файлов, что актуально для медленных сетевых соединений.</p>
+
+                                <p>Исправлена проблема с некорректной громкостью звука в Firefox.</p>
+
+                                <p>Переработана и улучшена документация, в частности разделы по установке, устранению проблем, созданию простейших приложений.</p>
+
+                                <p>В дистрибутив добавлены исходные файлы обучающих материалов.</p>
+
+
+                            </div>
+                        </div>
+                        <a class="exit" href="index.html">Выход</a>
+                    </div>
+                    <div class="bottom_nav">
+                        <script type="text/javascript">$(function(){$('.bottom_nav').load('inc/bottom_nav.html');})</script>
+                    </div>
+                </div>
+                
+            <div class="magazine_copy">Wantbook © 2009</div>
+            </div>
+        </div>
+    </div>
+
+        
+
+<!-- 
+    <div id="close"><p>ВЫХОД</p></div>
+    <div id="nav"></div> -->
+
+
+
+</article>
+<p id="license">Wantbook &copy; 2014 <a rel="license" href="http://wantbook.com/LICENSE"><img alt="Лицензия Creative Commons" style="vertical-align: middle; display:none;" src="http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" /></a></p>
+</body>
+
+</html>

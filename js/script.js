@@ -1,3 +1,119 @@
+/*------*/
+function scrolly(el, speed){
+  if(speed===undefined) speed=250;
+  var scrolly = $(el);
+  methods = {
+    init: function() {
+      var margintop = 0;var h = 0;var maxh = 0;
+      var sli = scrolly.children('ul').children('li');
+      sli.each(function(id,elem){                
+        if(id!=(sli.length-1)){
+          margintop+=sli.outerHeight(true);
+        }
+        h=sli.outerHeight(true);
+        if(h>maxh) maxh=h;                
+      })
+      if(maxh<50) maxh=122;  
+      $(scrolly).css({
+        'height': maxh,
+        'overflow':'hidden'   
+      })
+      $(scrolly).children('ul').css('margin-top', -margintop);
+      var topnav = '';
+      var botnav = '';
+      if(scrolly.find('ul').children('li').length==1){
+        topnav = "<a class='top'><i>&nbsp;</i></a>";
+        botnav = "<a class='bot'><i>&nbsp;</i></a>";
+      }else{
+        topnav = "<a class='top active'><i>&nbsp;</i></a>";
+        botnav = "<a class='bot'><i>&nbsp;</i></a>";
+      }
+      if($(scrolly).parent().find('a.top').length==0) $(scrolly).parent().append(topnav);
+      if($(scrolly).parent().find('a.bot').length==0) $(scrolly).parent().append(botnav);
+      function goToTop(upDown, elem, PM){
+        if(PM===undefined) PM = 5;
+        var PorM = PM; 
+        var newm = parseInt($(scrolly).children('ul').css('margin-top'));
+        if($(elem).hasClass('active')){
+          if(upDown=='checktop'){
+            if(newm>=-PorM){
+              elem.removeClass('active');
+              elem.siblings('.bot').addClass('active');
+              $(scrolly).children('ul').css('margin-top', 0);
+              return false;
+            }
+          }
+          if(upDown=='checkbottom'){
+            if(newm<=-margintop){
+              elem.removeClass('active');
+              elem.siblings('.top').addClass('active');
+              $(scrolly).children('ul').css('margin-top', -margintop);
+              return false;
+            }
+          }
+          if(upDown=='top'){
+            if(newm>=-PorM){
+              elem.removeClass('active');
+              elem.siblings('.bot').addClass('active');
+              $(scrolly).children('ul').css('margin-top', 0);
+              return false;
+            }else{
+              var totop = newm+maxh;
+              elem.siblings('.bot').addClass('active');
+              $(scrolly).children('ul').animate({
+                "margin-top": totop
+              }, speed, "linear", function(){goToTop('checktop', elem)})
+            }
+          }  //end if('top')
+          if(upDown=='bottom'){
+            if(newm<=-margintop){
+              elem.removeClass('active');
+              elem.siblings('.top').addClass('active');
+              $(scrolly).children('ul').css('margin-top', -margintop);
+              return false;
+            }else{
+              var tobottom = newm-maxh;
+              elem.siblings('.top').addClass('active');
+              $(scrolly).children('ul').animate({
+                "margin-top": tobottom
+              }, speed, "linear", function(){goToTop('checkbottom', elem)})
+            }
+          }  //end if('bottom')
+        }else{ return false } // end if('.hasClass("")')
+      } //end func goToTop
+      $(scrolly).siblings('.top').on('click', function(e){
+        goToTop('top', $(this));
+        e.stopPropagation();
+      })
+      $(scrolly).siblings('.bot').on('click', function(e){
+        goToTop('bottom', $(this));
+        e.stopPropagation();
+      })
+    }
+  }
+  methods.init();
+}
+function installDate(){
+  var date = new Date();
+  var month = date.getMonth();
+  var text = '';
+  switch(month){
+    case 0: text='Январь';break;
+    case 1: text='Февраль';break;
+    case 2: text='Март';break;
+    case 3: text='Апрель';break;
+    case 4: text='Май';break;
+    case 5: text='Июнь';break;
+    case 6: text='Июль';break;
+    case 7: text='Август';break;
+    case 8: text='Сентябрь';break;
+    case 9: text='Октябрь';break;
+    case 10: text='Ноябрь';break;
+    case 11: text='Декабрь';break;
+  }
+  return text;
+}
+
 $(function() {
   var application = {
     config: {
@@ -30,7 +146,7 @@ $(function() {
       for(var i=0; i<$("article").find(".revard_back").length; i++){
         $("#nav").append("<div class='nav' data='" + $("article").find(".revard").eq(i).attr("data") + "' data-face='" + $("article").find(".revard").eq(i).attr("data-face") + "'></div>");
       };
-      $(app.article).css({"margin-left":(($("body").width()-1600)/2*100/$("body").width())+"%","margin-top":(($("body").height()-1200)/4*100/$("body").height())+"%"});
+      $(app.article).css({"margin-top":(($("body").height()-1200)/4*100/$("body").height())+"%"});
 
       setTimeout( function() {
         $("article").fadeIn(300);
@@ -182,7 +298,7 @@ $(function() {
     var resize;
     clearTimeout(resize);
     resize = setTimeout( function() {
-      $(app.article).css({"margin-left":(($("body").width()-1600)/2*100/$("body").width())+"%","margin-top":(($("body").height()-1200)/4*100/$("body").height())+"%"});
+      $(app.article).css({"margin-top":(($("body").height()-1200)/4*100/$("body").height())+"%"});
     }, 100);
   }
 
@@ -327,4 +443,67 @@ function init( name ){
         character.setMesh( faces[name] );
     }
 }
+if($('.about_news').length>0){
+  $('a').each(function(id, elem){
+    $(elem).on('click', function(e){
+      e.stopPropagation;
+    })
+  })
+}
+
+  if($('.content-box').length>0||$('.project').length>0){
+    $('.exit').on('click', function(){
+      document.location = $(this).attr('href');
+    })
+    
+  }
+  if($('.about.project').length>0){
+    $('.aboutProjectRightPageSlider').find('a').each(function(id, elem){
+      $(elem).on('click', function(){
+        document.location = $(this).attr('href');
+      })
+
+    })
+  }else{
+    $('.magazine').on('click', function(e){
+      e.stopPropagation();
+    })
+    $('body').on('click', function(){
+        if($('.about').length>0||$('.about_project')>0){ }else{
+         $('.magazine').attr('style', '');$(".magazine-page").hide();$(".bg-layout").hide();
+        }
+    })
+    $("a[href='#about']").on("click", function(e) {
+      $(".magazine-page").show();
+      $(".bg-layout").fadeIn();
+      $(".magazine").animate({ "top" : "50%", "margin-top" : "-450px" }, 250)
+      e.stopPropagation();
+    });
+  }
+
+    if($('.magazine_copy').length>0){
+      var date = new Date();
+      var m = parseInt(date.getMonth());m++;
+      var y = parseInt(date.getFullYear());
+      $('.magazine_copy').each(function(id, elem){
+        var text = '';
+        $(elem).text(function(){
+          return  $(elem).text() + " - " + y;
+        })
+      })
+    }
+    if ($('.magazine').length>0){
+      var date = new Date();
+      var m = parseInt(date.getMonth());m++;
+      var y = parseInt(date.getFullYear());
+      $('.magazine').find('.month').text(function(){return installDate()});
+      $('.magazine').find('.number').text(function(){
+          text = y +" - № " + m;
+          return text;
+      })
+      $('.right-side .exit').on('click', function(e){
+        $('body').click();
+      })
+    }
+    if($('.bor').length>0){$(".bor .box").mCustomScrollbar({});}
 });

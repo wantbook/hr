@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
 <head>
 	<title>Wantbook</title>
@@ -7,177 +6,152 @@
 	<meta name="copyright" content="Wantbook 2014 Лицензия Creative Commons «Attribution-NonCommercial-NoDerivs» («Атрибуция — Некоммерческое использование — Без производных произведений») 3.0 Непортированная.">
 	<meta name="description" content="">
 	<meta name="keywords" content="">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/flexslider.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.css">
     <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
     <!--[if lt IE 9]>
     <script>
         document.createElement('article');
     </script>
     <![endif]-->
 
-    <script type="text/javascript" src="js/script.js"></script>
+    <script type='text/javascript' src='js/script.js'></script>
+
+    <script type='text/javascript'>
+        $(function(){
+            $('.aboutProjectHeadSlider').flexslider({
+                direction:'horizontal',
+                animation: 'slide',
+                pausePlay: false,
+                directionNav: false,
+                slideshowSpeed: 7000, 
+                prevText: "",
+                nextText: "",
+                start: function(slider){$('body').removeClass('loading')}
+            });
+            setTimeout(function(){
+                $(".sliderbox").mCustomScrollbar();
+            },100)
+
+        })
+    </script>
 </head> 
 
 
 <body>
 
-<article>
+<article class="wrapper">
+    <nav class="navigation clearfix">
+        <ul>
+
+            <li><a class="active" href="index.html">Новости</a></li>
+            <li><a href="#about">Проекты</a></li>
+            <li><a href="vacancies.html">Вакансии</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+    </nav>
+
     <div class="main">
-        <div class="revard block_1 revard_back" data="block_1" data-face="webdesigner"><div class="job"></div><div class="portrait"></div></div>
-        <div class="revard block_2 revard_back" data="block_2" data-face="girl2"><div class="job"></div><div class="portrait"></div></div>
-        <div class="revard block_3 revard_back" data="block_3" data-face="programmer"><div class="job"></div><div class="portrait"></div></div>
-        <div class="revard block_4 revard_back" data="block_4" data-face="advokat"><div class="job"></div><div class="portrait"></div></div>
-        <div class="revard block_5 revard_back" data="block_5" data-face="gamedesigner"><div class="job"></div><div class="portrait"></div></div>
-        <div class="revard block_6 revard_back" data="block_6" data-face="copywriter"><div class="job"></div><div class="portrait"></div></div>
-        <div class="revard block_7 revard_back" data="block_7" data-face="programmer3d"><div class="job"></div><div class="portrait"></div></div>
-        <div class="revard block_8 revard_back" data="block_8" data-face="girl"><div class="job"></div><div class="portrait"></div></div>
-        <div class="medal"></div>
-        <div class="light"></div>
-        <div class="revard block_1 bg_none" data="block_1" data-face="webdesigner"></div>
-        <div class="revard block_2 bg_none" data="block_2" data-face="girl2"></div>
-        <div class="revard block_3 bg_none" data="block_3" data-face="programmer"></div>
-        <div class="revard block_4 bg_none" data="block_4" data-face="advokat"></div>
-        <div class="revard block_5 bg_none" data="block_5" data-face="gamedesigner"></div>
-        <div class="revard block_6 bg_none" data="block_6" data-face="copywriter"></div>
-        <div class="revard block_7 bg_none" data="block_7" data-face="programmer3d"></div>
-        <div class="revard block_8 bg_none" data="block_8" data-face="girl"></div>
+
+        <h1 class="page-title news-title">Новости</h1>
+
+                 <div class="sliderbox">
+                    <a href="news_item_1.html" class="block"><div class="news-item">
+                        <img src="img/news/news_2.jpg" alt="Image" class="news-image">
+                        <header>
+                            <h2 class="news-title">Релиз новой версии Blend4Web</h2>
+                            <span class="news-date">23 апреля 2014 г.</span>
+                        </header>
+                        <div class="news-text">Увидел свет второй публичный выпуск открытого 3D web фреймворка Blend4Web. Фреймворк предназначен для создания трехмерного интерактивного контента, работающего в браузерах без использования плагинов. Blend4Web тесно интегрирован с открытым пакетом Blender, использующимся в качестве основного инструмента редактирования 3D сцен. Воспроизведение контента осуществляется средствами WebGL, Web Audio и других браузерных технологий.</div>
+                    </div></a>
+                    <a href="news_item_2.html" class="block"><div class="news-item">
+                        <img src="img/news/news_1.jpg" alt="Image" class="news-image">
+                        <header>
+                            <h2 class="news-title">Госдума приняла закон о правах и обязанностях популярных блогеров</h2>
+                            <span class="news-date">22 апреля 2014 г.</span>
+                        </header>
+                        <div class="news-text">Госдума приняла закон, который вводит новые правила для популярных блогеров и обязывает соцсети, поисковики и форумы полгода хранить информацию, оставленную пользователями. Депутаты настаивают, что речь не идет о приравнивании блогеров к СМИ. Документ, разработанный группой депутатов от всех фракций, входит в так называемый антитеррористический пакет, внесенный "по следам" взрывов в Волгограде в конце прошлого года. В ходе работы над текстом в нем появилось понятие "блогер" - владелец сайта с посещаемостью более 3 тыс. пользователей в сутки. </div>
+                    </div></a>
+                    <a href="news_item_3.html" class="block"><div class="news-item">
+                        <img src="img/news/news_3.png" alt="Image" class="news-image">
+                        <header>
+                            <h2 class="news-title">Первый релиз открытого движка Blend4Web</h2>
+                            <span class="news-date">06 апреля 2014 г.</span>
+                        </header>
+                        <div class="news-text">Компанией «Триумф» представлен выпуск новой платформы для разработки трёхмерных браузерных приложений Blend4Web. Движок использует технологию WebGL для рендеринга, имеется встроенная поддержка звука и физики. Для создания исходных сцен используется пакет 3D-моделирования Blender, для которого подготовлен соответствующий плагин. Особенностями движка являются удобство использования, мощные инструменты для продвинутых разработчиков и высокая производительность.</div>
+                    </div></a>
+                    <div class="news-item">
+                        <img src="img/news/pr_b2w.jpg" alt="Image" class="news-image">
+                        <header>
+                            <h2 class="news-title">WebGL движок «Blend4Web»</h2>
+                            <span class="news-date">13 декабря 2014 г.</span>
+                        </header>
+                        <div class="news-text">WebGL движок «Blend4Web» для создания 3D визуализации различных объектов, интерактивных игр, презентаций, интернет-магазинов и других web-приложений. «Blend4Web» проинтегрирована с пакетом 3D моделирования и анимации «Blender», отображение контента осуществляется при помощи программной библиотеки WebGL.</div>
+                    </div>
+                    <div class="news-item">
+                        <img src="img/news/pr_mm.jpg" alt="Image" class="news-image">
+                        <header>
+                            <h2 class="news-title">Площадка электронной торговли</h2>
+                            <span class="news-date">13 декабря 2014 г.</span>
+                        </header>
+                        <div class="news-text">Площадка электронной торговли – «облачный сервис» для соединения преимуществ традиционной (реальной) торговли с популярностью виртуальных продаж, в котором уже решены такие сложные, информационные и технологические задачи, как организация и размещение в интернете виртуального торгового центра.</div>
+                    </div>
+                    <div class="news-item">
+                        <img src="img/news/pr_social.jpg" alt="Image" class="news-image">
+                        <header>
+                            <h2 class="news-title">Социальная сеть для производителей и потребителей</h2>
+                            <span class="news-date">13 декабря 2014 г.</span>
+                        </header>
+                        <div class="news-text">Социальная сеть для производителей и потребителей предназначена для построения и организации в интернете социальных взаимоотношений между производителями, продавцами и конечными потребителями (покупателями) всевозможных товаров и услуг, с помощью таких интерактивных инструментов, как видео и текстовой чат, комментарии, рейтинги, приложений «вопрос-ответ», «мнения экспертов» и т.д.</div>
+                    </div>
+                    <div class="news-item">
+                        <img src="img/news/pre1.jpg" alt="Image" class="news-image">
+                        <header>
+                            <h2 class="news-title">Журнальная платформа</h2>
+                            <span class="news-date">13 декабря 2014 г.</span>
+                        </header>
+                        <div class="news-text">Журнальная платформа для создания интерактивных журналов различной тематики и просмотра их на мобильных телефонах, планшетах и домашних компьютерах. С помощью удобного интерфейса пользователь может создавать собственные журнальные страницы, наполнять их разнообразным контентом – текстами, музыкой, фильмами, фотографиями, графикой и элементами 3D анимации.</div>
+                    </div>
+                    <div class="news-item">
+                        <img src="img/news/pr_game.jpg" alt="Image" class="news-image">
+                        <header>
+                            <h2 class="news-title">Универсальная игровая платформа</h2>
+                            <span class="news-date">13 декабря 2014 г.</span>
+                        </header>
+                        <div class="news-text">Универсальная игровая платформа, предназначенная для написания двухмерных и трехмерных сетевых компьютерных игр, которые, в дальнейшем, могут размещаться в интерактивных журналах. Программа позволяет разработчикам браузерных игр формировать игровую логику и систему взаимодействия между игроками. </div>
+                    </div>
+                    
+                </div>
+
+        <!-- <div class="light"></div> -->
     </div>
+
     <div id="back_side"></div>
+    
+    <div class="about_company_projects">
+        <script type="text/javascript">
+            $('.about_company_projects').load('inc/about_company_projects.html');
+        </script>
+    </div>
+    <div class="bg-layout"></div>
+
     <div class="content down">
-        <div class="block_content" id="block_1">
-            <div class="deal"><div class="img_deal"/></div><div class="img_deal_text"></div></div>
-        <div class="revard_decription">
-            <div class="text">
-                <p>Разыскивается дизайнер, идеально знающий HTML, владеющий векторной графикой SVG, с опытом творения глянцевых журналов и не пугающийся JQuery и программной анимации. Безусловным плюсом будет не только творческая направленность на высокие результаты, но и способность кропотливо работать над огромным количеством деталей произведений искусства. Может быть, Вы мечтаете создать фильм, 	  интерактивную игру на странице журнала – направляйте к нам ваше резюме и подтверждение вашего профессионализма в тестовом задании. </p>
-                <div class="hh"><p>ПОДРОБНОЕ ОПИСАНИЕ</p><p><a href="http://hh.ru/vacancy/9874585" target="_blank">Ссылка на вакансию</a></p></div>
-            </div>
-        </div>
-        <div class="revard_scene">
-            <img src="img/f1.jpg" alt="" title=""/>
-            <div id="wgl-app">
-                <div id="loader"><span class="load_graf"><span class="load_text"></span></span></div>
-            </div>
-        </div>
-        <div class="l_paper"></div>
-        <div class="r_paper"></div>
-    </div>
 
-    <div class="block_content" id="block_2">
-        <div class="deal"><div class="img_deal"/></div><div class="img_deal_text"></div></div>
-    <div class="revard_decription">
-        <div class="text">
-            <p>Разыскивается мастер интернетовского дела, увлеченный идеями развития продуктовых отношений в виртуальной сети. Мышление в терминах веб сервисов и эргономичных форм должно подкрепляться  способностью выделять главное в реальных торговых цепочках, анализировать потребительские ниши и понимать причину успеха того или иного бизнеса. Огромные горы труда и задач должны стимулировать Вас разрабатывать лучшие интернет решения. Приветствуются такие качества как требовательность,  добросовестность, ответственность и дисциплина, как Вашего труда, так и подчиненной задаче команды разработчиков. Лучший способ продемонстрировать вашу нацеленность – выполнение тестового задания, кейса на выбор.</p>
-            <div class="hh"><p>ПОДРОБНОЕ ОПИСАНИЕ</p><p><a href="http://hh.ru/vacancy/5222417?query=%D0%91%D0%B0%D1%80%D1%80%D0%B8%D1%81%D1%82%D0%B5%D1%80" target="_blank">Ссылка на вакансию</a></p></div>
+        <div id="ert">
+            <!--<div id="ert2"></div>-->
         </div>
-    </div>
-    <div class="revard_scene">
-        <img src="img/f2.jpg" alt="" title=""/>
-    </div>
-    <div class="l_paper"></div>
-    <div class="r_paper"></div>
-    </div>
 
-    <div class="block_content" id="block_3">
-        <div class="deal"><div class="img_deal"/></div><div class="img_deal_text"></div></div>
-    <div class="revard_decription">
-        <div class="text">
-            <p>Разыскивается программист верстальщик, не «ломающий» рабочие HTML макеты, а превращающий их в программные формы с интерактивностью лучших современных сетевых игр. Абсолютным требованием является знание HTML и особенностей поведения веб страниц с использованием библиотек JQuery, JQuery SVG. Для тех, кто понимает значение технологий HTML 5, наши двери открыты особенно широко. Для настоящего в душе программиста не составит труда выполнить тест на знание или умение  разобраться в динамических тонкостях HTML и JQuery.</p>
-            <div class="hh"><p>ПОДРОБНОЕ ОПИСАНИЕ</p><p><a href="http://hh.ru/vacancy/9715267" target="_blank">Ссылка на вакансию</a></p></div>
-        </div>
-    </div>
-    <div class="revard_scene">
-        <img src="img/f3.jpg" alt="" title=""/>
-    </div>
-    <div class="l_paper"></div>
-    <div class="r_paper"></div>
-    </div>
-
-    <div class="block_content" id="block_4">
-        <div class="deal"><div class="img_deal"/></div><div class="img_deal_text"></div></div>
-    <div class="revard_decription">
-        <div class="text">
-            <p>Разыскивается юрист, готовый завоевывать мир и достигать вершин правового искусства. Вам понадобятся умения составлять договоры с детальным учетом правовых, финансовых и операционных рисков, вырабатывать выгодную юридическую позицию и четкую линию защиты в различных инстанциях. Искусство ведения судебного боя должно подкрепляться пониманием сути предметной области – особенности работы пользователей интернета, коммерческие расчеты, логистика продаж, авторское право и все, что относится к материальному миру. Если Вам и целого мира мало, и Вы готовы нести ответственность за принятые решения – нам с Вами по пути.</p>
-            <div class="hh"><p>ПОДРОБНОЕ ОПИСАНИЕ</p><p><a href="http://hh.ru/vacancy/5545055?query=%D0%91%D0%B0%D1%80%D1%80%D0%B8%D1%81%D1%82%D0%B5%D1%80" target="_blank">Ссылка на вакансию</a></p></div>
-        </div>
-    </div>
-    <div class="revard_scene">
-        <img src="img/f4.jpg" alt="" title=""/>
-    </div>
-    <div class="l_paper"></div>
-    <div class="r_paper"></div>
-    </div>
-
-    <div class="block_content" id="block_5">
-        <div class="deal"><div class="img_deal"/></div><div class="img_deal_text"></div></div>
-    <div class="revard_decription">
-        <div class="text">
-            <p>Разыскивается выразительный художник-моделлер, способный полигонами оживлять персонажей, игровые предметы и локации. Вы должны уметь работать с материалами и освещением, создавая реалистичные образы. Особенно приветствуется мастерство оснастки кукол для аниматора. Если в вашем портфолио   есть место для слова Блендер, Вы уже почти наш человек. Несложное тестовое задание поможет нам оценить ваш художественный вкус и точность исполнения.</p>
-            <div class="hh"><p>ПОДРОБНОЕ ОПИСАНИЕ</p><p><a href="http://hh.ru/vacancy/9607211m" target="_blank">Ссылка на вакансию</a></p></div>
-        </div>
-    </div>
-    <div class="revard_scene">
-        <img src="img/f5.jpg" alt="" title=""/>
-    </div>
-    <div class="l_paper"></div>
-    <div class="r_paper"></div>
-    </div>
-
-    <div class="block_content" id="block_6">
-        <div class="deal"><div class="img_deal"/></div><div class="img_deal_text"></div></div>
-    <div class="revard_decription">
-        <div class="text">
-            <p>Разыскивается редактор нового формата журналов. Это раньше журнал можно было прочитать, свернуть в трубочку и убить комара, использовать в качестве подставки для чая и кофе. Новые технологии собирают
-                в журнале все, что человек смог на сегодня напридумать – от книг и стенгазет до фильмов, игр и целых интернет магазинов. Умение работать с контентом – это то, что мы ищем. Нужно уметь написать статью, снять видеосюжет, сделать новостной выпуск и организовать целую  выставку. И не беда, что всему этому сразу  не учили, настоящее стремление не знает преград. Можно для начала попробовать наше тестовое задание, обзор одного из событий, которые нас окружают каждый день. </p>
-            <div class="hh"><p>ПОДРОБНОЕ ОПИСАНИЕ</p><p><a href="http://hh.ru/vacancy/5782318?query=%D0%91%D0%B0%D1%80%D1%80%D0%B8%D1%81%D1%82%D0%B5%D1%80" target="_blank">Ссылка на вакансию</a></p></div>
-        </div>
-    </div>
-    <div class="revard_scene">
-        <img src="img/f6.jpg" alt="" title=""/>
-    </div>
-    <div class="l_paper"></div>
-    <div class="r_paper"></div>
-    </div>
-    <div class="block_content" id="block_7">
-        <div class="deal"><div class="img_deal"/></div><div class="img_deal_text"></div></div>
-    <div class="revard_decription">
-        <div class="text">
-            <p>Разыскивается Программист трехмерной графики, связывающий свою профессиональную жизнь с игровой индустрией. Знания фокусов визуальной иллюзии 3D миров и основ математического читтинга должны сопутствовать уверенному инженерному владению программными 3D пакетами и библиотеками – OpenGL, Blender, WebGL, Bullet. Демонстрация умений в тестовом задании позволит подтвердить вашу принадлежность к индустрии 3D. </p>
-            <div class="hh"><p>ПОДРОБНОЕ ОПИСАНИЕ</p><p><a href="http://hh.ru/vacancy/7380396" target="_blank">Ссылка на вакансию</a></p></div>
-        </div>
-    </div>
-    <div class="revard_scene">
-        <img src="img/f7.jpg" alt="" title=""/>
-    </div>
-    <div class="l_paper"></div>
-    <div class="r_paper"></div>
-    </div>
-    <div class="block_content" id="block_8">
-        <div class="deal"><div class="img_deal"/></div><div class="img_deal_text"></div></div>
-    <div class="revard_decription">
-        <div class="text">
-            <p>Разыскивается начинающий «Мистер Вульф», способный вести делопроизводство и жизнеобеспечение офиса, вырабатывать самостоятельные решения в режиме многозадачности. Вам представится возможность работать в одной команде и учиться у продуктовых менеджеров, а впоследствии стать специалистом в понравившемся направлении. Вы можете реализовать свои знания в юриспруденции, экономике, научиться писать живые бизнес - планы и  понимать структуру организации бизнеса, как в России, так и за рубежом. Приветствуется готовность к широкому кругу обязанностей, умение самостоятельно делать все, в том числе и приготовление чая и кофе гостям офиса и своим ответственным руководителям.</p>
-            <div class="hh"><p>ПОДРОБНОЕ ОПИСАНИЕ</p><p><a href="http://hh.ru/vacancy/9799952" target="_blank">Ссылка на вакансию</a></p></div>
-        </div>
-    </div>
-    <div class="revard_scene">
-        <img src="img/f8.jpg" alt="" title=""/>
-    </div>
-    <div class="l_paper"></div>
-    <div class="r_paper"></div>
-    </div>
-    <div id="ert">
-        <!--<div id="ert2"></div>-->
-    </div>
-
-
+<!-- 
     <div id="close"><p>ВЫХОД</p></div>
-    <div id="nav"></div>
+    <div id="nav"></div> -->
 
 
 
 </article>
-<p id="license">Wantbook &copy; 2014 <a rel="license" href="http://wantbook.com/LICENSE"><img alt="Лицензия Creative Commons" style="vertical-align: middle" src="http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" /></a></p>
+<p id="license">Wantbook &copy; 2014 <a rel="license" href="http://wantbook.com/LICENSE"><img alt="Лицензия Creative Commons" style="vertical-align: middle; display:none;" src="http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" /></a></p>
 </body>
 
 </html>

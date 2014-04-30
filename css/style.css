@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'modernist_oneregular';
+    src: url('font/modernistone-webfont.eot');
+    src: url('font/modernistone-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/modernistone-webfont.woff') format('woff'),
+         url('font/modernistone-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+a:focus,a:link, a:visited{border:0 none;}
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -21,6 +31,7 @@ time, mark, audio, video {
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section, canvas {
 	display: block;
+    position: relative;
 }
 body {
 	line-height: 1;
@@ -28,6 +39,7 @@ body {
 	width: 100%;
 	background:#000;
 	overflow:hidden;
+    font-family: modernist_oneregular;
 }
 html{
     height:100%;
@@ -52,12 +64,19 @@ h1{
 }
 p{
     padding: 10px 10px 0 10px;
-    font: normal 12pt/11pt 'Courier New', sans-serif;
-    letter-spacing: -1pt;
+    font-size:14px;
+    font-weight: normal;
 }
 #wgl-app {
 	display: inline-block;
 	cursor : none;
+}
+ul.bullet{
+    list-style: disc inside none;
+    padding-top: 10px;
+}
+ul.bullet li {
+
 }
 article .revard{
     position: absolute;
@@ -78,19 +97,23 @@ article .revard{
 .hover{
     background-position:0px -232px!important;
 }
+.clear, .cl{clear: both; height: 0; display: block; visibility: hidden;}
+
+
 article{
-    position:absolute;
+    position:relative;
+    margin:0 auto;
     width: 1600px;
     height: 1200px;
-    display: table;
+    display: block;
     background:url("../img/bg.jpg") no-repeat center;
 }
 .main{
     position: absolute;
-    width: 800px;
-    height: 635px;
-    top:253px;
-    left:190px;
+    width: 760px;
+    height: 520px;
+    top:288px;
+    left:225px;
 }
 .content{
     width:1213px;
@@ -135,8 +158,8 @@ article{
     z-index:80;
 }
 .revard.block_1{
-    top: 133px;
-    left: 65px;
+    top: 98px;
+    left: 30px;
     -webkit-transform: rotate(-14deg);
     -moz-transform: rotate(-14deg);
     -ms-transform: rotate(-14deg);
@@ -145,8 +168,8 @@ article{
     z-index:80;
 }
 .revard.block_2{
-    top: 145px;
-    left: 239px;
+    top: 110px;
+    left: 204px;
     -webkit-transform: rotate(5deg);
     -moz-transform: rotate(5deg);
     -ms-transform: rotate(5deg);
@@ -155,8 +178,8 @@ article{
     z-index:70;
 }
 .revard.block_3{
-    top: 142px;
-    left: 425px;
+    top: 107px;
+    left: 390px;
     -webkit-transform: rotate(1deg);
     -moz-transform: rotate(1deg);
     -ms-transform: rotate(1deg);
@@ -165,8 +188,8 @@ article{
     z-index:60;
 }
 .revard.block_4{
-    top: 122px;
-    left: 586px;
+    top: 87px;
+    left: 551px;
     -webkit-transform: rotate(11deg);
     -moz-transform: rotate(11deg);
     -ms-transform: rotate(11deg);
@@ -175,8 +198,8 @@ article{
     z-index:50;
 }
 .revard.block_5{
-    top: 385px;
-    left: 75px;
+    top: 350px;
+    left: 40px;
     -webkit-transform: rotate(14deg);
     -moz-transform: rotate(14deg);
     -ms-transform: rotate(14deg);
@@ -185,8 +208,8 @@ article{
     z-index:40;
 }
 .revard.block_6{
-    top: 386px;
-    left: 263px;
+    top: 351px;
+    left: 228px;
     -webkit-transform: rotate(1deg);
     -moz-transform: rotate(1deg);
     -ms-transform: rotate(1deg);
@@ -195,8 +218,8 @@ article{
     z-index:30;
 }
 .revard.block_7{
-    top: 375px;
-    left: 430px;
+    top: 340px;
+    left: 395px;
     -webkit-transform: rotate(-10deg);
     -moz-transform: rotate(-10deg);
     -ms-transform: rotate(-10deg);
@@ -205,8 +228,8 @@ article{
     z-index:20;
 }
 .revard.block_8{
-    top: 387px;
-    left: 596px;
+    top: 352px;
+    left: 561px;
     -webkit-transform: rotate(1deg);
     -moz-transform: rotate(1deg);
     -ms-transform: rotate(1deg);
@@ -241,8 +264,8 @@ article{
 .medal{
     width:68px;
     height:82px;
-    top: 310px;
-    left: 712px;
+    top: 275px;
+    left: 677px;
     z-index:95;
     position:absolute;
     background:url("../img/medal.png");
@@ -513,9 +536,6 @@ a{
     background:none!important;
     z-index:105!important;
 }
-.text p{
-    font: normal 13pt/14pt 'Courier New', sans-serif;
-}
 #loader{
     position:absolute;
     width: 355px;
@@ -554,7 +574,9 @@ a{
     right:0px;
     z-index:109;
     color:#fff;
+    font-size: 13px;
 }
+#license{}
 .l_paper{
     position:absolute;
     background: url("../img/paper.png")  -124px -87px;
@@ -589,3 +611,525 @@ a{
     border-top:1px dashed #fff;
     border-left:1px dashed #fff;
 }
+
+
+
+
+.clearfix:after {
+     content: ".";
+     display: block;
+     height: 0;
+     clear: both;
+     visibility: hidden;
+}
+
+.clearfix {display: inline-block;}
+
+
+/* Hides from IE-mac \*/
+
+* html .clearfix {height: 1%;}
+
+.clearfix {display: block;}
+
+/* End hide from IE-mac */
+
+/*------------------*/
+
+.main {
+
+    box-sizing: border-box;
+}
+
+.navigation {
+/*    margin-top: 220px;
+    margin-left: 190px;*/
+    position: absolute;
+    top: 210px;
+    left: 190px;
+    z-index: 101;
+    font-size: 20px;
+}
+
+.navigation ul li {
+    float: left;
+    text-transform: uppercase;
+    margin-right: 40px;
+}
+
+.navigation ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    opacity: 0.4;
+    -o-opacity: 0.4;
+    -moz-opacity: 0.4;
+    -webkit-opacity: 0.4;
+    -ms-opacity: 0.4;
+}
+
+.navigation ul li a:hover,
+.navigation ul li a.active {
+    text-decoration: underline;
+    color: #ffffff;
+    opacity: 0.7;
+    -o-opacity: 0.7;
+    -moz-opacity: 0.7;
+    -webkit-opacity: 0.7;
+    -ms-opacity: 0.7; 
+}
+
+.page-title {
+    font-size: 32px;
+    text-align: left;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    display: inline-block;
+    vertical-align: top;
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+    height: 50px;
+    width: 186px;
+}
+
+.news-item {
+    display: inline-block;
+    margin-bottom: 23px;
+    padding-left: 170px;
+    position: relative;
+    vertical-align: top;
+}
+
+.news-item .news-title {
+    font-size: 22px;
+    color: #4E3A3A;
+    display: inline-block;
+    vertical-align: bottom;
+    margin-bottom: 6px;
+    padding-right: 100px;
+}
+.magazine-page .news-item .news-title{font-size:20px; }
+.magazine-page .news-item .news-text{text-align: justify; }
+
+.news-item .news-date {
+    color: #A18C77;
+    display: block;
+    font-size: 12px;
+    left: 0;
+    position: absolute;
+    text-align: right;
+    top: 0;
+    width: 100%;
+}
+
+.news-item .news-image {
+    float: left;
+    margin-left: -167px;
+    margin-top: 3px;
+    width: 155px;
+}
+
+.news-item .news-text {
+    color: #281b2b;
+    font-size: 14px;
+}
+
+address {
+    font-size: 26px;
+    color: #E9E1D6;
+    margin-bottom: 20px;
+}
+
+address span,
+.phone,
+.e-mail {
+    display: block;
+}
+
+.phone,
+.e-mail {
+    color: #fff;
+    font-size: 18px;
+}
+
+.e-mail {
+    margin-bottom: 15px;
+}
+
+.map {
+    /*width: 100%;*/
+}
+
+.page-title.news-title {
+    background-image: url("../img/news_title.png");
+}
+
+.page-title.contacts-title {
+    background-image: url("../img/contacts_title.png");
+}
+
+.page-title.main-title {
+    background-image: url("../img/main_title.png");
+    height: 132px;
+    width: 484px;
+    margin-top: -31px;
+}
+
+.bg-layout {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .7);
+    display: none;
+}
+
+/*Верхний левый слайдер на странице about*/
+.project .flex-control-nav li{margin:0 4px;}
+.aboutProjectHeadSlider{position: relative;margin-bottom: 20px;margin-top:10px; width:1148px; z-index: 3;}
+.aboutProjectHeadSlider .flex-control-nav{width:auto;right:10px;bottom:10px;z-index: 99;}
+/*Слайдер на правой странице*/
+.aboutProjectRightPageSlider{position: relative;}
+/*Цвета кружков*/
+.aboutProjectRightPageSlider .flex-control-paging li a,
+.aboutProjectHeadSlider .flex-control-paging li a {background: rgba(255,255,255,0.5); height:13px;width:13px;}
+.aboutProjectRightPageSlider .flex-control-paging li a:hover,
+.aboutProjectHeadSlider .flex-control-paging li a:hover {background: rgba(255,255,255,0.7);}
+.aboutProjectRightPageSlider .flex-control-paging li a.flex-active,
+.aboutProjectHeadSlider .flex-control-paging li a.flex-active {background: rgba(255,255,255,0.9);}
+
+
+.magazine, .about {
+    width: 1208px;
+    height: 768px;
+    top: 200%;
+    position: absolute;
+    left: 50%;
+    /*top: 50%;*/
+    margin-left: -604px;
+    z-index: 102;
+    /*margin-top: -384px;*/
+}
+.about{top: 50%;margin-top: -450px;}
+.magazine-page ,.about-page{
+  width: 1208px;
+  height: 768px;
+  position: absolute;    
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, .2);
+  display: block;
+  z-index: 102;
+  background-color: #e4d0b8; 
+  /*display: none;*/
+}
+.about-page{
+    display: block;
+}
+
+.magazine-page:nth-child(1), .about-page:nth-child(1) {
+    -webkit-transform: rotate(1deg);
+    transform: rotate(1deg);
+}
+
+.magazine-page:nth-child(2), .about-page:nth-child(2) {
+    -webkit-transform: rotate(-1deg);
+   transform: rotate(-1deg);   
+}
+
+.magazine-page:nth-child(3) , .about-page:nth-child(3) {
+    box-shadow: -3px 0px 9px rgba(0, 0, 0, .2);
+}
+
+.magazine-page .left-side, .about-page .left-side, 
+.magazine-page .right-side, .about-page .right-side{
+    /*height: 716px;*/
+    width: 50%;
+    height:100%;
+    /*padding: 30px 19px 19px;*/
+    position: absolute;
+    top: 0;
+    /*position: relative;*/
+}
+.magazine-page .left-side, .about-page .left-side{left:0;}
+.magazine-page .right-side, .about-page .right-side{right:0;}
+
+.magazine-page .left-side, .about-page .left-side{position: absolute;left:0;top:0;}
+.magazine-page .right-side, .about-page .right-side{position: absolute;right:0;top:0;}
+.left-side-inner p{padding-left:0; padding-right:0;}
+
+.magazine-page .left-side .left-side-inner, .about-page .left-side .left-side-inner,
+.magazine-page .right-side .right-side-inner, .about-page .right-side .right-side-inner{
+    border-bottom: 1px solid #444;
+    margin: 30px;
+    height:695px;
+}
+.project .left-side .left-side-inner{border-top: 1px solid #444;}
+.magazine-page .right-side .right-side-inner, .about-page .right-side .right-side-inner{
+    border-top: 1px solid #444;
+}
+
+.magazine-page .left-side, .about-page .left-side{
+   background-color: #e4d0b8; 
+}
+
+.magazine-page .magazine_copy, .about-page .magazine_copy,
+.magazine-page .magazine_copy, .about-page .magazine_copy{
+    position: absolute;width: 100%;text-align: center;bottom: 12px; text-transform: uppercase; font-size: 13px;
+}
+
+.magazine-page .exit, .about-page .exit{
+    font-size:20px;
+    text-transform:uppercase;
+    color:#5a4c41;
+    position:absolute;
+    bottom:10px;
+    right: -30px;
+    cursor: pointer;
+    overflow: hidden;
+    height: 37px;
+    line-height: 56px;
+    padding-right: 60px;
+    text-decoration: none;
+    background: url('../img/exit.png') no-repeat;background-position: right top;
+    z-index: 999;
+}
+.magazine-page .exit:hover, .about-page .exit:hover{background-position: bottom right;}
+
+.magazine-page .right-side, .about-page .right-side{
+    background-color: #e9d9c5;
+}
+
+.magazine-page.light, .about-page.light{
+    background-color: #e9d9c5;
+}
+.magazine-title-box{position:relative; top: -20px;}
+.magazine-title-box .month, .magazine-title-box .number, .magazine-title-box .copy{
+    position: absolute;z-index: 99;
+}
+.magazine-title-box .month{left:65px; top:17px; width:134px; text-align:center;}
+.magazine-title-box .number{left:338px; top: 17px; width:126px; text-align:center;}
+.magazine-title-box .copy{left:70px; bottom: 6px; width: 390px; text-align:center; font-size:13px; color:#b19c86;}   
+
+.magazine-title, .about-title{
+    text-indent: -9999px;
+    background-image: url("../img/title_mag.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 160px;
+}
+
+.magazine-page .article, .about-page .article{
+    margin-bottom: 30px;
+}
+
+.side-title,
+.magazine-page .article .article-header, .about-page .article .article-header{
+    background-color: #d6c1ac;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 26px;
+    height: 24px;
+    line-height: 24px;
+}
+
+.magazine-page .left-side .article .article-header, .about-page .left-side .article .article-header{margin-bottom: 0;}
+
+.side-title h2,
+.magazine-page .article .article-header h2 , .about-page .article .article-header h2 {
+    display: inline-block;
+    vertical-align: top;
+    padding-right: 10px;
+}
+
+.magazine-page .left-side .left-side-inner .article .article-header h2 , .about-page .left-side .left-side-inner .article .article-header h2{
+    background-color: #e4d0b8;    
+}
+.right-side .right-side-top, .side-top{position: absolute;top: 8px;width: 100%;text-align: center; text-transform: uppercase;}
+.right-side .right-side-top div, .side-top div{display: none}
+
+.side-title h2, .magazine-page .right-side .right-side-inner .article .article-header h2, .about-page .right-side .right-side-inner .article .article-header h2 {
+    background-color: #e9d9c5;
+}
+
+.side-title, .article-header {
+    font-size: 26px;
+    line-height: 26px;
+    margin-top: 15px;
+}
+
+.magazine-page .article .article-text, .about-page .article .article-text{
+    font-size: 14px;text-align: justify;
+}
+
+
+.menu {
+    bottom: -148px;
+    position: absolute;
+    z-index: 100;
+    width: 1208px;
+    overflow:hidden;
+}
+
+.margin{margin: 0 auto; width: 1085px;}
+
+.menu .fadeMenu, .menu .circle{
+    float: left;padding: 10px;
+}
+.menu .fadeMenu{border-left: 1px solid #ccc;padding-bottom:0;}
+.menu .fadeMenu li{margin-bottom: 10px;}
+.menu .circle{width: 30px;}
+.menu .circle a {display:block; height: 27px;width: 27px;line-height: 27px;text-align: center;}
+.menu .circle a.active{background: url("../img/circ.png") no-repeat;color:#bc9365;padding-right: 0;}
+
+.menu ul li a, .menu ul li a:visited{
+    padding-right: 30px;
+    color: #ccc;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.menu .fadeMenu li a:hover{
+    text-decoration: underline;
+    color:#bc9365;
+    
+    background:url("../img/line_gor.png") no-repeat;background-position: right 8px;
+    display: block;
+}
+
+
+.menu-active-content .scrolly ul,
+.menu-active-content .scrolly li { float:none;display:block;margin:0;padding:0; }
+
+
+.menu-active-box{float:left;position: relative;}
+.menu-active-box .top:visited, .menu-active-box .bot:visited, .menu-active-box .top, .menu-active-box .bot{color:transparent;}
+
+.menu-active-box .top, .menu-active-box .bot{display: block; text-align:center;padding: 14px;position: absolute; border-radius:30px;cursor: default;}
+
+.menu-active-box .top i, .menu-active-box .bot i{
+    background: url("../img/scroll.png") no-repeat;
+    height: 6px;
+    width: 11px;
+    display: block;
+    position: absolute;
+    top: 50%;left:50%;margin-left: -6px;margin-top: -4px;
+}
+
+.menu-active-box .top{position: absolute;right:-20px;top: 0;}
+.menu-active-box .bot{position: absolute;right:-20px;bottom: 7px;}
+
+.menu-active-box .top.active, .menu-active-box .bot.active{background:url('../img/circ.png') no-repeat;cursor: pointer;}
+
+.menu-active-box .top i {background-position: 0 -6px;}
+.menu-active-box .bot i {background-position: -11px -6px; margin-top: -3px;}
+
+.menu-active-box .top.active i{background-position: 0 0;}
+.menu-active-box .bot.active i{background-position: -11px 0;}
+
+
+.menu .menu-active-content {
+    float: left;
+    padding: 5px 10px;
+}
+
+.menu .bot_menu_left, .menu .bot_menu_right{float: left;height:132px;width: 13px;}
+.menu .bot_menu_left{margin-right:-10px;background: url('../img/line_left.png') no-repeat;}
+.menu .bot_menu_right{margin-left:-34px;background: url('../img/line_right.png') no-repeat top right;}
+
+.menu .menu-active-content ul li li {
+    float: left;
+    margin-right: 20px;
+    padding-top: 2px;
+}
+
+.menu .menu-active-content .item {
+    float: left;
+    text-align: center;
+    width: 150px;
+    text-decoration: none;
+    padding: 0;
+}
+
+.menu .menu-active-content .item:hover img {
+    border: 1px solid #bc9365;position: relative; height: 96px;
+}
+.menu .menu-active-content .item:hover span{
+    color:#bc9365;text-decoration:underline; position:relative; 
+}
+
+.menu .menu-active-content .item img {
+    height: 98px;
+}
+
+
+.menu .menu-active-content .item .item-title {
+    text-transform: uppercase;
+    font-size: 18px;
+    color: #fff;
+    display: block;
+}
+
+.sliderbox .news-item .news-title{color:#c29d5f;}
+.sliderbox .news-item .news-date{color:#E9E1D6;}
+.sliderbox .news-item .news-text{color:#fff;opacity:0.7;text-align: justify;}
+.sliderbox .news-item:hover img{-o-box-shadow:0px 0px 5px 1px rgba(255, 255, 255, 0.3);-moz-box-shadow:0px 0px 5px 1px rgba(255, 255, 255, 0.3);-webkit-box-shadow:0px 0px 5px 1px rgba(255, 255, 255, 0.3);box-shadow:0px 0px 5px 1px rgba(255, 255, 255, 0.3);-ms-box-shadow:0px 0px 5px 1px rgba(255, 255, 255, 0.3);}
+
+.about_news{
+    background-color: rgba(0, 0, 0, 0.7);
+    bottom: 0;
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+}
+.content-box{padding: 30px;height: 91%; text-align: justify;}
+
+.content-box p{padding-left: 0; padding-right: 0;}
+.bor{height: 100%; border-top: 1px solid #444444;border-bottom: 1px solid #444444;}
+.bor .box{height: 660px;overflow: hidden;margin:20px 0; width:1176px;}
+.bor .title{margin-top:0px;}
+.title{
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-size: 26px;
+    height: 24px;
+    line-height: 24px;
+}
+.date span{
+    color: #A18C77;
+    display: inline-block;
+    font-size: 12px;
+    vertical-align: top;
+}
+.text img{
+    float: left;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    height:300px;
+}
+.tophead{
+    position: absolute;
+    text-align: center;
+    top: 8px;
+    width: 94%;
+    text-transform: uppercase;
+}
+.project .about-page .right-side-inner{position: absolute;overflow: hidden;}
+.project .aboutProjectRightPageSlider .slides{height:355px;overflow: hidden;}
+.project .about-page .aboutProjectHeadSlider .slides li{position: relative;}
+.project .about-page .aboutProjectHeadSlider .background{position: absolute; top: 0; right: 0; z-index: 2; height:268px; width: 50%; background: #E9D9C5; opacity: 0.1; -ms-opacity: 0.1; -webkit-opacity: 0.1; -o-opacity: 0.1; -moz-opacity: 0.1; filter:"alpha(opacity=10)"; -ms-filter:"alpha(opacity=10)";  }
+.sliderbox{position: relative;height:460px;}
+.sliderbox a.block{display: block;}
+.about_company_projects .slides{height:635px;overflow: hidden;}
+.right-side-inner-bottom{top:287px;position: relative;}
+
+.fullsize .aboutProjectHeadSlider{width:545px;}
+.project.fullsize  .aboutProjectRightPageSlider .slides{height:640px;}
+
+/*.HZ_vert{position:absolute; right:-13px; top:0; width:7px; border-radius:5px; height:20px;background: #333;}*/

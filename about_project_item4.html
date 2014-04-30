@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Wantbook</title>
+    <meta charset="utf-8">
+    <meta name="copyright" content="Wantbook 2014 Лицензия Creative Commons «Attribution-NonCommercial-NoDerivs» («Атрибуция — Некоммерческое использование — Без производных произведений») 3.0 Непортированная.">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/flexslider.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.css">
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
+    <!--[if lt IE 9]>
+    <script>
+        document.createElement('article');
+    </script>
+    <![endif]-->
+
+    <script type='text/javascript' src='js/script.js'></script>
+
+    <script type='text/javascript'>
+        $(function(){
+            $('.aboutProjectHeadSlider').flexslider({
+                direction:'horizontal',
+                animation: 'slide',
+                pausePlay: false,
+                directionNav: false,
+                slideshowSpeed: 7000, 
+                prevText: "",
+                nextText: "",
+                start: function(slider){$('body').removeClass('loading')}
+            })
+            $(".aboutProjectRightPageSlider .slides").mCustomScrollbar();
+        })
+    </script>
+</head> 
+
+
+<body>
+
+    <article class="wrapper">
+        <nav class="navigation clearfix">
+            <ul>
+
+                <li><a href="news.html">Новости</a></li>
+                <li><a href="#about">Проекты</a></li>
+                <li><a href="vacancies.html">Вакансии</a></li>
+                <li><a class="active" href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+
+        <div class="main">
+
+            <h1 class="page-title contacts-title">Контакты</h1>
+
+            <address>
+                <span>10944, г. Москва</span>
+                <span>2-Й Куртицкий пер. д. 18, стр. 3</span>
+            </address>
+
+            <span class="phone">+7 (495) 676-36-60</span>
+            <span class="e-mail">info@triumf.mos.ru</span>
+
+            <img src="img/map_cont.jpg" alt="Карта" class="map">
+
+            <div class="light"></div>
+        </div>
+
+<!--style="margin-top:-384px;top:50%;"-->
+
+
+
+        <div class="about project">
+            <div class="about-page"></div>
+            <div class="about-page"></div>
+            <div class="about-page">
+                <div class="left-side">
+                <div class="side-top">Wantbook обозрение<div style="float:right;">2</div></div>
+                    <div class="left-side-inner">
+                     <!--<div class="about-title">Wantbook обозрение</div>-->
+                     <div class='aboutProjectHeadSlider'>
+                         
+                         <ul class='slides'>
+                            <li><img src='img/map_cont.jpg' alt='Карта' width='580'/></li>          
+                            <li><img src='img/map_cont.jpg' alt='Карта' width='580'/></li>
+                            <li><img src='img/map_cont.jpg' alt='Карта' width='580'/></li>
+                         </ul>
+
+                     </div>
+                     <div class="article">
+                         <header class="article-header"><h2 style="font-size:23px;">Социальная сеть для производителей и потребителей</h2></header>
+                         <div class="article-text">
+                            <p>Основным преимуществом этой web-платформы является то, что она предоставляет пользователям возможность использовать, одновременно, разные виды онлайн сервисов для общения между собой. Это полноценная социальная сеть с развитыми возможностями, ничем не уступающая другим, популярным сегодня, социальным сетям, но ориентированная на прямое взаимодействие между продавцами товаров и услуг и потребителями.</p>
+                            <p>Пользователи могут создавать личный профиль или профиль своей компании, производить и распространять контент, управлять доступом, общаться с другими пользователями  через личные сообщения или публично, пользоваться системами комментариев и уведомлений, «доской объявлений», лентой новостей и другими программными инструментами.</p>
+                            <p>Социальная сеть для производителей и потребителей дает возможность собирать статистику активности различных аудиторий и целевых групп, анализировать потребительский спрос и покупательские предпочтения ее участников.</p>
+                         </div>
+                     </div>
+
+                    
+                 </div>
+                 <div class="magazine_copy">Wantbook © 2009</div>
+             </div>
+
+             <div class="right-side">
+             <div class="right-side-top">Wantbook обозрение<div style="float:right;">2</div></div>
+             <div class="right-side-inner">
+                <div class="side-title">
+                    <h2>Проекты</h2>
+                </div>
+                    <div class="load">
+                        <script type="text/javascript">
+                            $(function(){
+                                $('.load').load('inc/aboutProjectRightPageSlider.html');                            
+                            })
+                        </script>
+                    </div>
+                </div>
+                <div class="magazine_copy">Wantbook © 2009</div>
+                <div class="exit" href="index.html">Выход</div>
+            </div>
+            <div class="bottom_nav">
+                <script type="text/javascript">$(function(){$('.bottom_nav').load('inc/bottom_nav.html');})</script>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="bg-layout" style="display:block;"></div>
+
+    <div class="content down">
+
+        <div id="ert">
+            <!--<div id="ert2"></div>-->
+        </div>
+
+
+
+<!-- 
+    <div id="close"><p>ВЫХОД</p></div>
+    <div id="nav"></div> -->
+
+
+
+</article>
+<p id="license">Wantbook &copy; 2014 <a rel="license" href="http://wantbook.com/LICENSE"><img alt="Лицензия Creative Commons" style="vertical-align: middle; display:none;" src="http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" /></a></p>
+</body>
+
+</html>
