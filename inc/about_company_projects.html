@@ -80,14 +80,30 @@
             <div class="exit">Выход</div>
         </div>
         <div class="bottom_nav">
-            <script type="text/javascript">$(function(){
+            <script type="text/javascript">
+            $(function(){
                 $('.bottom_nav').load('inc/bottom_nav.html');
                 $('.about_company_projects .slides').mCustomScrollbar({});
                 setTimeout(function(){
                     $('.about_company_projects .slides').mCustomScrollbar('update');
                 },100)
 
-            })</script>
+                
+
+
+                if($('.main .page-title.news-title').text()!='Новости'){
+                    if($('.about_news').length>0){
+                        setTimeout(function(){ 
+                            createElem($('.loadproject .news-item'), $('.scrolly.project'));
+                            createElem($('.loadnews .news-item'), $('.scrolly.news'));
+                            toggle();
+                        },100)
+                    }
+                }
+
+            })
+            </script>
+           
         </div>
     </div>
     
