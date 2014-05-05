@@ -68,6 +68,12 @@
 <script type="text/javascript">
     $(function(){
         if($('.main .page-title.news-title').text()=='Новости'){
+
+            $(".sliderbox").mCustomScrollbar();
+            setTimeout(function(){
+                $(".sliderbox").mCustomScrollbar('update');
+            },2000)   
+            
         
         }else{
             if($('.about_news').length>0){
@@ -87,6 +93,7 @@
                     $('.fadeMenu .project2').text(x);
 
                     $('.circle a').css({'background': 'none transparent', 'width':'auto'}).text('Проекты');
+                    $('.circle a').attr('href', 'index.html#aboutprojects')
                     $('.circle').css({'width':'auto'})
 
                 }
@@ -98,7 +105,7 @@
                 createElem($('.loadnews .news-item'), $('.scrolly.news'));
                 setTimeout(function(){
                     toggle();
-                },50) 
+                },200) 
             }
         }
     })

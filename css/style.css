@@ -7,6 +7,12 @@
     font-weight: normal;
     font-style: normal;
 }
+.overflow{
+    height: 928px;
+    overflow: hidden;
+    top: 0;
+    min-width: 1200px;
+}
 a:focus,a:link, a:visited{border:0 none;}
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -37,8 +43,9 @@ body {
 	line-height: 1;
 	height: 100%;
 	width: 100%;
+    margin: 0 auto;
+    overflow: auto;
 	background:#000;
-	overflow:hidden;
     font-family: modernist_oneregular;
 }
 html{
@@ -64,7 +71,7 @@ h1{
 }
 p{
     padding: 10px 10px 0 10px;
-    font-size:14px;
+    font-size:16px;
     font-weight: normal;
 }
 #wgl-app {
@@ -102,11 +109,12 @@ article .revard{
 
 article{
     position:relative;
-    margin:0 auto;
+    margin:-138px auto 0;;
     width: 1600px;
     height: 1200px;
     display: block;
     background:url("../img/bg.jpg") no-repeat center;
+    overflow: hidden;
 }
 .main{
     position: absolute;
@@ -375,12 +383,14 @@ article{
     position:absolute;
     overflow:hidden;
     background:url("../img/textinfo.png");
+
     top: 368px;
     left: 31px;
     width: 469px;
     height: 384px;
     padding: 13px 17px;
 }
+.revard_decription .text *{font-size: 16px;}
 .revard_decription, .revard_scene{
     position:relative;
     display:inline-block;
@@ -701,7 +711,7 @@ a{
 
 .news-item .news-title {
     font-size: 22px;
-    color: #4E3A3A;
+    color: #614D4D;
     display: inline-block;
     vertical-align: bottom;
     margin-bottom: 6px;
@@ -730,7 +740,7 @@ a{
 
 .news-item .news-text {
     color: #281b2b;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 address {
@@ -933,7 +943,7 @@ address span,
     line-height: 24px;
 }
 
-.magazine-page .left-side .article .article-header, .about-page .left-side .article .article-header{margin-bottom: 0;}
+.magazine-page .left-side .article .article-header, .about-page .left-side .article .article-header{margin-bottom: 0; margin-top: 0;}
 
 .side-title h2,
 .magazine-page .article .article-header h2 , .about-page .article .article-header h2 {
@@ -1076,6 +1086,8 @@ address span,
     font-size: 13px;
     color: #fff;
     display: block;
+    height: 36px;
+    overflow: hidden;
 }
 
 .sliderbox .news-item .news-title{color:#c29d5f;}
