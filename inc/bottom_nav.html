@@ -5,7 +5,7 @@
     <ul class="fadeMenu">
         <li><a href="index.html" class="news">Новости</a></li>
         <li><a class="project">Проекты</a></li>
-        <li><a href="vacancies.html">Вакансии</a></li>
+        <li><a href="vacancies.html" class="vacancies">Вакансии</a></li>
         <li><a href="contacts.html">Контакты</a></li>
     </ul>
     <div class="menu-active-box">
@@ -13,9 +13,71 @@
             <div class="bot_menu_left">&nbsp;</div>
             <div class="menu-active-content">
                 <div class='togl1'><div class="scrolly news"></div></div>
-
-                <div class='togl2'><div class="scrolly project">
+                <div class='togl2'><div class="scrolly project"></div></div>
+                <div class='togl3'><div class="scrolly vacancies">
                     
+                    <ul>
+                        
+                        <li>
+                            <ul>
+                                <li>
+                                    <a href="vacancies.html#revard_block_1" class="item">
+                                        <span class="item-inner"><img src="img/f1.jpg" alt="">
+                                        <span class="item-title">Web designer</span></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="vacancies.html#revard_block_2" class="item">
+                                        <span class="item-inner"><img src="img/f2.jpg" alt="">
+                                        <span class="item-title">Product manager</span></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="vacancies.html#revard_block_3" class="item">
+                                        <span class="item-inner"><img src="img/f3.jpg" alt="">
+                                        <span class="item-title">Web programmer</span></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="vacancies.html#revard_block_4" class="item">
+                                        <span class="item-inner"><img src="img/f4.jpg" alt="">
+                                        <span class="item-title">Lawyer</span></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="vacancies.html#revard_block_5" class="item">
+                                        <span class="item-inner"><img src="img/f5.jpg" alt="">
+                                        <span class="item-title">3D designer</span></span>
+                                    </a>
+                                </li>
+                                <div class="clear"></div>
+                            </ul>
+                        </li>
+                        <li>
+                            <ul>
+                                <li>
+                                    <a href="vacancies.html#revard_block_6" class="item">
+                                        <span class="item-inner"><img src="img/f6.jpg" alt="">
+                                        <span class="item-title">Copywriter</span></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="vacancies.html#revard_block_7" class="item">
+                                        <span class="item-inner"><img src="img/f7.jpg" alt="">
+                                        <span class="item-title">3D programmer</span></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="vacancies.html#revard_block_8" class="item">
+                                        <span class="item-inner"><img src="img/f8.jpg" alt="">
+                                        <span class="item-title">Office manager</span></span>
+                                    </a>
+                                </li>
+                                <div class="clear"></div>
+                            </ul>
+                        </li>
+                    </ul>
+
                 </div></div>
             </div>
             <div class="bot_menu_right">&nbsp;</div>
@@ -50,6 +112,20 @@
                 $('body').append('<div class="loadnews" style="display:none;"></div>')
                 $('.loadnews').load('inc/news.html');                  
             }    
+        }
+        if(proverko==0){
+            if($('.magazine_copy').length>0){
+              var date = new Date();
+              var m = parseInt(date.getMonth());m++;
+              var y = parseInt(date.getFullYear());
+              $('.magazine_copy').each(function(id, elem){
+                var text = '';
+                $(elem).text(function(){
+                  return  $(elem).text() + " - " + y;
+                })
+              })
+            }
+            proverko++;
         }
         //$('body').append('<div class="loadnews" style="display:none;"></div>')
         //$('.loadnews').load('inc/news.html');

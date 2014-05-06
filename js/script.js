@@ -1,4 +1,5 @@
 /*------*/
+var proverko = 0;
 function scrolly(el, speed){
   if(speed===undefined) speed=250;
   var scrolly = $(el);
@@ -18,15 +19,15 @@ function scrolly(el, speed){
         'height': maxh,
         'overflow':'hidden'   
       })
-      $(scrolly).children('ul').css('margin-top', -margintop);
+      //$(scrolly).children('ul').css('margin-top', -margintop);
       var topnav = '';
       var botnav = '';
       if(scrolly.children('ul').children('li').length==1){
         topnav = "<a class='top'><i>&nbsp;</i></a>";
         botnav = "<a class='bot'><i>&nbsp;</i></a>";
       }else{
-        topnav = "<a class='top active'><i>&nbsp;</i></a>";
-        botnav = "<a class='bot'><i>&nbsp;</i></a>";
+        topnav = "<a class='top'><i>&nbsp;</i></a>";
+        botnav = "<a class='bot active'><i>&nbsp;</i></a>";
       }
       if($(scrolly).parent().find('a.top').length==0) $(scrolly).parent().append(topnav);
       if($(scrolly).parent().find('a.bot').length==0) $(scrolly).parent().append(botnav);
@@ -125,6 +126,7 @@ function createElem(elem1, elem2){
       var sliderItem = masterElem.eq(count);
       var sliderItemImgSrc = sliderItem.find('.news-image').attr('src');
       var sliderItemAHref = sliderItem.parent('a').attr('href');
+      var sliderItemATarget = sliderItem.parent('a').attr('target');
       var sliderItemTitle = sliderItem.find('.news-title').text();    
       var secondaryElemBox = secondaryElem.children('ul').children('li').eq(eventCount-1);
       var secondaryElemLiStruct = '';
@@ -145,6 +147,8 @@ function createElem(elem1, elem2){
       secondaryElemBox.children('ul').append(secondaryElemLiStruct);
       
       secondaryElemBox.find('li').eq(secondaryElemBoxLiCount).find('a').attr('href', sliderItemAHref);
+
+      secondaryElemBox.find('li').eq(secondaryElemBoxLiCount).find('a').attr('target', sliderItemATarget);
 
       secondaryElemBox.find('li').eq(secondaryElemBoxLiCount).find('img').attr('src', sliderItemImgSrc);
       secondaryElemBox.find('li').eq(secondaryElemBoxLiCount).find('.item-title').text(sliderItemTitle);
@@ -167,24 +171,36 @@ function createElem(elem1, elem2){
 }
 
 function toggle(){
-  scrolly('.scrolly.news', 400); scrolly('.scrolly.project', 400);
-  var news = $('.togl1'); var project = $('.togl2');
-  var hidden = news; hidden.hide();
+  scrolly('.scrolly.news', 400); scrolly('.scrolly.project', 400); scrolly('.scrolly.vacancies', 400);
+  var news = $('.togl1'); var project = $('.togl2'); var vacancies = $('.togl3');
+  var hidden = news; hidden.hide(); vacancies.hide();
   $('.fadeMenu a.news').data('start', false);
   $('.fadeMenu a').each(function(id, elem){
-      if($(elem).hasClass('news')||$(elem).hasClass('project')){
+      if($(elem).hasClass('news')||$(elem).hasClass('project')||$(elem).hasClass('vacancies')){
           $(elem).on('mouseenter', function(e){
 
                 if($(this).hasClass('news')){
-                    project.hide();news.show();
+                    project.hide();vacancies.hide();news.show();
                     $(this).addClass('active');
-                    $(this).parents('ul').find('.project').removeClass('active');       
+                    $(this).parents('ul').find('.project').removeClass('active');
+                    $(this).parents('ul').find('.vacancies').removeClass('active');
+
                     e.stopPropagation();
                     return false
-                }else{
-                    news.hide();project.show();
+                }
+                if($(this).hasClass('project')){
+                    news.hide();vacancies.hide();project.show();
                     $(this).addClass('active'); 
                     $(this).parents('ul').find('.news').removeClass('active');
+                    $(this).parents('ul').find('.vacancies').removeClass('active');
+                    e.stopPropagation();
+                    return false
+                }
+                if($(this).hasClass('vacancies')){
+                    news.hide();project.hide();vacancies.show();
+                    $(this).addClass('active'); 
+                    $(this).parents('ul').find('.news').removeClass('active');
+                    $(this).parents('ul').find('.project').removeClass('active');
                     e.stopPropagation();
                     return false
                 }
@@ -194,6 +210,10 @@ function toggle(){
 }
 
 $(function() {
+
+
+  /*----------*/
+  var startx;
   var application = {
     config: {
       portrait1_delay: 0,
@@ -298,6 +318,7 @@ $(function() {
       } , 5000);
     },
     open_content: function(_this){
+      
       $(app.revard).removeClass("down");
       $(app.content).addClass("down");
       setTimeout( function() {$(app.content).removeClass("down")  }, 500);
@@ -322,6 +343,7 @@ $(function() {
       }else{
         $("#"+$(_this).attr("data")+" .revard_scene").find("img").css("display","block");
       }
+    
     }
   },
   app = application.config;
@@ -347,7 +369,13 @@ $(function() {
   });
 
   $(app.revard).on("click",function(){
-    application.open_content(this);
+    
+    if($(this).data('started')!=true){
+      application.open_content(this);$(this).data('started', true);
+    }
+
+    
+
   });
 
   $(".revard").hover(function(){
@@ -374,18 +402,26 @@ $(function() {
   });
 
   window.onresize = function() {
-    var resize;
+    /*var resize;
     clearTimeout(resize);
     resize = setTimeout( function() {
       //$(app.article).css({"margin-top":(($("body").height()-1200)/4*100/$("body").height())+"%"});
       
-    }, 100);
+    }, 100);*/
     if($('body').height()<1200&&$('body').height()>=928){
       $('.overflow').height($('body').height());
     }
+
+    var resize;
+    clearTimeout(resize);
+    resize = setTimeout( function() {
+        if($('body').width()<1600&&$('body').width()>1230){
+            $('.overflow').css('margin-left', ((1600-$('body').width())/2)*-1)
+        }
+    }, 100);
+
+
   }
-
-
 
 window.facesLoaded = false;
 
@@ -564,17 +600,7 @@ if($('.about_news').length>0){
     });
   }
 
-    if($('.magazine_copy').length>0){
-      var date = new Date();
-      var m = parseInt(date.getMonth());m++;
-      var y = parseInt(date.getFullYear());
-      $('.magazine_copy').each(function(id, elem){
-        var text = '';
-        $(elem).text(function(){
-          return  $(elem).text() + " - " + y;
-        })
-      })
-    }
+    
     if ($('.magazine').length>0){
       var date = new Date();
       var m = parseInt(date.getMonth());m++;
