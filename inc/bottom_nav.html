@@ -86,6 +86,7 @@
 </div></nav>
 <script type="text/javascript">
     $(function(){
+        $('.bottom_nav').css('visibility','hidden');
         if($('.main .page-title.news-title').text()=='Новости'){
             
                 if($('.about.project').length>0){
@@ -129,5 +130,14 @@
         }
         //$('body').append('<div class="loadnews" style="display:none;"></div>')
         //$('.loadnews').load('inc/news.html');
+        if($('.main .page-title.news-title').text()=='Новости'||$('.main .page-title.main-title').text()=='Крупный интернет проект разыскивает особо талантливых'||$('.main .page-title.contacts-title').text()=='Контакты'){
+            
+            //Меню внизу страницы
+
+            /*var nav_box = document.createElement("div");
+            $(nav_box).addClass('copy_bottom_nav');
+            $(nav_box).appendTo('.main');
+            $('.bottom_nav').clone().appendTo(nav_box);*/
+        }
     })
 </script>

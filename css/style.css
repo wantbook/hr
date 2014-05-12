@@ -109,12 +109,13 @@ article .revard{
 
 article{
     position:relative;
-    margin:-138px auto 0;;
+    margin:-600px auto 0;;
     width: 1600px;
     height: 1200px;
     display: block;
     background:url("../img/bg.jpg") no-repeat center;
     overflow: hidden;
+    top:50%;
 }
 .main{
     position: absolute;
@@ -889,6 +890,13 @@ address span,
     position: absolute;width: 100%;text-align: center;bottom: 12px; text-transform: uppercase; font-size: 13px;
 }
 
+.magazine-page .prev, .magazine-page .next{position:absolute; bottom: 12px; text-transform: uppercase; font-size: 13px;}
+
+.magazine-page .prev{left:200px;}
+.magazine-page .next{right:200px;}
+.magazine-page .prev a, .magazine-page .next a{text-decoration: none; color:#9f9f9f;}
+.magazine-page .prev:hover a, .magazine-page .next:hover a {color:#9B7244;}
+
 .magazine-page .exit, .about-page .exit{
     font-size:20px;
     text-transform:uppercase;
@@ -1174,5 +1182,17 @@ address span,
 
 .fullsize .aboutProjectHeadSlider{width:545px;}
 .project.fullsize  .aboutProjectRightPageSlider .slides{height:640px;}
+
+.bottom_nav .menu .margin{
+    transform: perspective(120px) rotateX(5deg);
+    -o-transform: perspective(120px) rotateX(5deg);
+    -ms-transform: perspective(120px) rotateX(5deg);
+    -moz-transform: perspective(120px) rotateX(5deg);
+    -webkit-transform: perspective(120px) rotateX(5deg);
+}
+
+
+
+
 
 /*.HZ_vert{position:absolute; right:-13px; top:0; width:7px; border-radius:5px; height:20px;background: #333;}*/
