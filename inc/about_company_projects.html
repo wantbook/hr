@@ -82,7 +82,10 @@
         <div class="bottom_nav">
             <script type="text/javascript">
             $(function(){
-                $('.bottom_nav').load('inc/bottom_nav.html');
+
+                if($('.loadproject').length==0){
+                    $('.bottom_nav').load('inc/bottom_nav.html');
+                }
                 $('.about_company_projects .slides').mCustomScrollbar({});
                 setTimeout(function(){
                     $('.about_company_projects .slides').mCustomScrollbar('update');

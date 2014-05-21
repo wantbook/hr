@@ -8,10 +8,10 @@
     font-style: normal;
 }
 .overflow{
-    height: 928px;
+    height: 100%;
+    margin-left:0;
     overflow: hidden;
     top: 0;
-    min-width: 1600px;
 }
 a:focus,a:link, a:visited{border:0 none;}
 html, body, div, span, applet, object, iframe,
@@ -113,7 +113,7 @@ article{
     width: 1600px;
     height: 1200px;
     display: block;
-    background:url("../img/bg.jpg") no-repeat center;
+    background:url("../img/bg_main.jpg") no-repeat center;
     overflow: hidden;
     top:50%;
 }
@@ -981,6 +981,11 @@ address span,
     font-size: 14px;text-align: justify;
 }
 
+.copy_bottom_nav{
+    position: absolute;
+    bottom: -106px;
+    left:50px;
+}
 
 .menu {
     bottom: -148px;
@@ -1183,7 +1188,7 @@ address span,
 .fullsize .aboutProjectHeadSlider{width:545px;}
 .project.fullsize  .aboutProjectRightPageSlider .slides{height:640px;}
 
-.bottom_nav .menu .margin{
+.bottom_nav .menu .margin, .copy_bottom_nav .menu .margin{
     transform: perspective(120px) rotateX(5deg);
     -o-transform: perspective(120px) rotateX(5deg);
     -ms-transform: perspective(120px) rotateX(5deg);

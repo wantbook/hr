@@ -1,3 +1,161 @@
+function additionalMenu(){
+    var nav_box = document.createElement("div");
+    $(nav_box).addClass('copy_bottom_nav');
+    $(nav_box).css('visibility', 'hidden');
+    $(nav_box).appendTo('.main');
+    var botNav =  $('.bottom_nav .menu').clone();
+    $(botNav).css('visibility', 'hidden');
+    botNav.addClass('child');
+    var parent = document.createElement("nav");
+    var structure = {
+        structure: function(){
+            var div = document.createElement("div");
+            var ul = document.createElement("ul");
+            var li = document.createElement("li");
+            var a = document.createElement("a");
+            var span = document.createElement("span");
+            var img = document.createElement("img");
+            $(parent).addClass('menu parent');
+            var divMargin = $(div).clone().addClass('margin').appendTo(parent);
+            var ulCircle = $(ul).clone().addClass('circle').appendTo(divMargin);
+            var aActive = $(a).clone().addClass('active').text('2014').appendTo(li).appendTo(ulCircle);
+            var eventClick = {
+                click:function(elem){
+                    $(elem).on('click', function(){
+                        alert($(this).text()+' Отладка на клик')
+                    })
+                }
+            }
+            //eventClick.click(aActive)
+            var menuStructure = {
+                install: function(){
+                    var div = document.createElement("div");
+                    var ul = document.createElement("ul");
+                    var li = document.createElement("li");
+                    var a = document.createElement("a");
+                    var divMenuActiveBox = $(div).clone().addClass('menu-active-box').appendTo(divMargin);
+                    var divMenuActiveBoxItem = $(div).clone().addClass('menu-active-box-item').appendTo(divMenuActiveBox);
+                    var divBotMenuLeft = $(div).clone().addClass('bot_menu_left').appendTo(divMenuActiveBoxItem);
+                    $(div).clone().addClass('bot_menu_right').appendTo(divMenuActiveBoxItem);            
+                    var divMenuActiveContent = $(div).clone().addClass('menu-active-content').insertAfter(divBotMenuLeft);
+                    var divScrolly = $(div).clone().addClass('scrolly parent').appendTo(divMenuActiveContent)
+                    var firstUl = $(ul).clone().appendTo(divScrolly);
+                    var firstUlLi = $(li).clone().appendTo(firstUl);
+                    var firstUlLiUl = $(ul).clone().appendTo(firstUlLi);
+                    var firstUlLiUlLi = $(li).clone().appendTo(firstUlLiUl);
+                    var aFirstUlLiUlLi = $(a).clone().addClass('item').appendTo(firstUlLiUlLi);
+                    var aSpan = $(span).clone().addClass('item-inner').appendTo(aFirstUlLiUlLi);
+                    var spanImg = $(img).clone().addClass('item-inner').appendTo(aSpan);
+                    var spanItemTitle = $(span).clone().addClass('item-title').appendTo(aSpan);
+                        
+
+                    //$(firstUlLiUlLi).clone().insertAfter(firstUlLiUlLi);
+                    //$(firstUlLiUlLi).clone().insertAfter(firstUlLiUlLi);
+                    //$(firstUlLiUlLi).clone().insertAfter(firstUlLiUlLi);
+                    var divClear = $(div).clone().addClass('clear').appendTo(firstUlLiUl);
+                }
+            }
+            menuStructure.install();
+            var menuList = {
+                install: function(){
+                    var menu = $(botNav).find('.fadeMenu li');
+                    for(i=0;i<menu.length;i++){
+                        var li = $(parent).find('.scrolly.parent ul li ul li');
+                        if(i==0){
+                            var myhref = menu.eq(i).children('a').attr('href');
+                            if(myhref!=undefined){
+                                li.eq(i).children('a').attr('href', myhref)
+                            }
+                            li.eq(i).children('a').find('.item-title').text(menu.eq(i).children('a').text())      
+                        }else{
+                            var myli = li.eq(0).clone().insertAfter(li.eq(i-1));
+                            $(parent).find('.scrolly.parent ul li ul li').eq(i);
+                            var myhref = menu.eq(i).children('a').attr('href');
+                            if(myhref==undefined){ myli.children('a').removeAttr('href')}else{
+                                myli.children('a').attr('href', myhref);
+                            }
+                            myli.children('a').find('.item-title').text(menu.eq(i).children('a').text())
+                        }
+                    }
+                }            
+            }
+            menuList.install();
+            var image = {
+                install:function(){
+                    var image = $(parent).find('.scrolly.parent ul li ul li');
+                    for(i=0; i<image.length; i++){
+                        var text = image.eq(i).find('.item-title').text();
+                        switch(text){
+                            case "Новости": 
+                                image.eq(i).find('img').attr('src', function(){
+                                    return 'img/menu/1_ne.png'
+                                })
+                                break;
+                            case "Проекты": 
+                                image.eq(i).find('img').attr('src', function(){
+                                    return 'img/menu/2_pr.png'
+                                })
+                                break;
+                            case "Вакансии": 
+                                image.eq(i).find('img').attr('src', function(){
+                                    return 'img/menu/3_va.png'
+                                })
+                                break;
+                            case "Контакты": 
+                                image.eq(i).find('img').attr('src', function(){
+                                    return 'img/menu/4_co.png'
+                                })
+                                break;
+                        }
+                    }
+                }
+            }
+            image.install();
+        }
+    };
+    structure.structure();
+
+    var menuClick = {
+        install: function(){
+            var a = $(parent).find('.scrolly.parent ul li ul li a');
+            for(i=0;i<a.length;i++){
+
+                a.eq(i).on('click', function(e){
+                    $(parent).hide(); $(botNav).css('visibility', 'visible');
+                    var text = $(this).text()
+                    switch(text){
+                        case "Новости": $('.menu.child').find('.fadeMenu a').eq(0).mouseenter(); break;
+                        case "Проекты": $('.menu.child').find('.fadeMenu a').eq(1).mouseenter(); break;
+                        case "Вакансии": $('.menu.child').find('.fadeMenu a').eq(2).mouseenter(); break;
+                        case "Контакты": $('.menu.child').find('.fadeMenu a').eq(3).mouseenter(); break;
+                    }
+                    e.stopPropagination;
+                    return false; 
+                })
+            }
+            $(botNav).find('.circle a').on('click', function(e){
+              $('.menu.parent').show();$('.menu.child').css('visibility', 'hidden');
+            })
+        }
+    }
+    menuClick.install();  
+
+    //console.log(parent)
+    //console.log(botNav)
+    //$(botNav).hide()
+
+    $(parent).appendTo(nav_box)
+    $(botNav).appendTo(nav_box);
+
+
+
+
+    setTimeout(function(){
+       $(nav_box).css('visibility', 'visible')
+    },400)
+
+}
+
 /*------*/
 var proverko = 0;
 function scrolly(el, speed){
@@ -171,20 +329,26 @@ function createElem(elem1, elem2){
 }
 
 function toggle(){
-  scrolly('.scrolly.news', 400); scrolly('.scrolly.project', 400); scrolly('.scrolly.vacancies', 400);
-  var news = $('.togl1'); var project = $('.togl2'); var vacancies = $('.togl3');
+  setTimeout(function(){
+      scrolly('.bottom_nav .scrolly.news', 400); scrolly('.bottom_nav .scrolly.project', 400); scrolly('.bottom_nav .scrolly.vacancies', 400);
+  },300)
+  
+
+  var news = $('.bottom_nav .togl1'); var project = $('.bottom_nav .togl2'); var vacancies = $('.bottom_nav .togl3');
+  if($('.main .page-title.news-title').text()=='Новости'||$('.main .page-title.main-title').text()=='Крупный интернет проект разыскивает особо талантливых'||$('.main .page-title.contacts-title').text()=='Контакты'){
+    additionalMenu();
+  }
   var hidden = news; hidden.hide(); vacancies.hide();
+
   $('.fadeMenu a.news').data('start', false);
-  $('.fadeMenu a').each(function(id, elem){
+  $('.bottom_nav .fadeMenu a').each(function(id, elem){
       if($(elem).hasClass('news')||$(elem).hasClass('project')||$(elem).hasClass('vacancies')){
           $(elem).on('mouseenter', function(e){
-
                 if($(this).hasClass('news')){
                     project.hide();vacancies.hide();news.show();
                     $(this).addClass('active');
                     $(this).parents('ul').find('.project').removeClass('active');
                     $(this).parents('ul').find('.vacancies').removeClass('active');
-
                     e.stopPropagation();
                     return false
                 }
@@ -207,7 +371,43 @@ function toggle(){
           })
       }
   })
+  if($('.copy_bottom_nav').length>0){
+    scrolly('.copy_bottom_nav .scrolly.news', 400); scrolly('.copy_bottom_nav .scrolly.project', 400); scrolly('.copy_bottom_nav .scrolly.vacancies', 400);
+    var news_copy = $('.copy_bottom_nav .togl1'); var project_copy = $('.copy_bottom_nav .togl2'); var vacancies_copy = $('.copy_bottom_nav .togl3');
+    news_copy.hide();vacancies_copy.hide();
+    $('.copy_bottom_nav .fadeMenu a').each(function(id, elem){
+        if($(elem).hasClass('news')||$(elem).hasClass('project')||$(elem).hasClass('vacancies')){
+            $(elem).on('mouseenter', function(e){
+                  if($(this).hasClass('news')){
+                      project_copy.hide();vacancies_copy.hide();news_copy.show();
+                      $(this).addClass('active');
+                      $(this).parents('ul').find('.project').removeClass('active');
+                      $(this).parents('ul').find('.vacancies').removeClass('active');
+                      e.stopPropagation();
+                      return false
+                  }
+                  if($(this).hasClass('project')){
+                      news_copy.hide();vacancies_copy.hide();project_copy.show();
+                      $(this).addClass('active'); 
+                      $(this).parents('ul').find('.news').removeClass('active');
+                      $(this).parents('ul').find('.vacancies').removeClass('active');
+                      e.stopPropagation();
+                      return false
+                  }
+                  if($(this).hasClass('vacancies')){
+                      news_copy.hide();project_copy.hide();vacancies_copy.show();
+                      $(this).addClass('active'); 
+                      $(this).parents('ul').find('.news').removeClass('active');
+                      $(this).parents('ul').find('.project').removeClass('active');
+                      e.stopPropagation();
+                      return false
+                  }
+            })
+        }
+    })
+  }
   $('.fadeMenu a.project').addClass('active');
+
   if($('body').width()<1600&&$('body').width()>1230){
       $('.overflow').css('margin-left', ((1600-$('body').width())/2)*-1)
     }
@@ -255,6 +455,8 @@ function toggle(){
           installNextHrefBox.hide();
       }
     }
+  
+  
 }
 
 $(function() {
@@ -652,11 +854,13 @@ if($('.about_news').length>0){
         if($('.about').length>0||$('.about_project')>0){ }else{
          $('.magazine').attr('style', '');$(".magazine-page").hide();$(".bg-layout").hide();
         }
+        $('.copy_bottom_nav').show();
     })
     $("a[href='#about']").on("click", function(e) {
       $(".magazine-page").show();
       $(".bg-layout").fadeIn();
       $(".magazine").animate({ "top" : "50%", "margin-top" : "-450px" }, 250)
+      $('.copy_bottom_nav').hide();
       e.stopPropagation();
     });
   }
