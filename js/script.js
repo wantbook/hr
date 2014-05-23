@@ -408,9 +408,13 @@ function toggle(){
   }
   $('.fadeMenu a.project').addClass('active');
 
-  if($('body').width()<1600&&$('body').width()>1230){
+    if($('body').width()<1600&&$('body').width()>1230){
       $('.overflow').css('margin-left', ((1600-$('body').width())/2)*-1)
+	//alert($('body').width()+ " " +$('.wrapper').width()+" "+((1600-$('body').width())/2)*-1)
     }
+    if($('body').width()<1230){
+            $('.overflow').css('margin-left', '-150px')
+       }
     if($('body').width()>=1600){
       $('.overflow').css('margin-left', '0');
     }
@@ -666,13 +670,17 @@ $(function() {
     if($('body').height()<1200&&$('body').height()>=928){
       $('.overflow').css('height', '100%');
     }
-
+	
+if($('body').width()<1230){
+            $('.overflow').css('margin-left', '-150px')
+       }
     var resize;
     clearTimeout(resize);
     resize = setTimeout( function() {
-        if($('body').width()<1600&&$('body').width()>1230){
+        if($('body').width()<1600&&$('body').width()>1200){
             $('.overflow').css('margin-left', ((1600-$('body').width())/2)*-1)
         }
+       
         if($('body').width()>=1600){
           $('.overflow').css('margin-left', '0');
         }
